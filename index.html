@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kanjar De — Responsible AI Engineer</title>
+<meta name="description" content="Responsible AI Engineer. I build AI systems for high-risk domains and govern them under EU AI Act, ISO 42001, and NIST AI RMF. Stockholm." />
+
+<!-- Open Graph / social cards -->
+<meta property="og:title" content="Kanjar De — Responsible AI Engineer" />
+<meta property="og:description" content="I build AI systems for high-risk domains — healthcare, finance, critical infrastructure — and govern them under the EU AI Act, ISO 42001, and NIST AI RMF." />
+<meta property="og:type" content="website" />
+
+<!-- Fonts: distinctive editorial serif + technical mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Palette: deep ink + warm signal */
+    --bg:        #0b0d10;
+    --bg-soft:   #12151a;
+    --bg-card:   #161a20;
+    --line:      #232831;
+    --line-soft: #1a1e25;
+    --text:      #e8e6e1;
+    --text-mute: #9aa0a8;
+    --text-dim:  #6b7280;
+    --accent:    #d4a574;   /* warm amber — sparingly */
+    --accent-2:  #7fb3d5;   /* cool steel — for governance frameworks */
+    --good:      #8fbc8f;
+    --warn:      #d4a574;
+
+    --font-display: 'Fraunces', 'Georgia', serif;
+    --font-mono:    'JetBrains Mono', 'Consolas', monospace;
+    --font-body:    'Fraunces', 'Georgia', serif;
+
+    --content-max: 760px;
+    --content-wide: 1100px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    font-feature-settings: "kern", "liga", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grain texture for depth */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(212, 165, 116, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(127, 179, 213, 0.03) 0%, transparent 40%);
+    z-index: 0;
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--accent); }
+
+  /* ─── Layout ─── */
+  .wrap {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .wrap-wide {
+    max-width: var(--content-wide);
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── Top nav ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(11, 13, 16, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line-soft);
+    z-index: 100;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  nav .wrap-wide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  nav .logo {
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  nav .logo .dot { color: var(--accent); }
+  nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  nav ul a {
+    color: var(--text-mute);
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--text); }
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    padding: 120px 0 100px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .hero .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero .eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5.5vw, 58px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 32px;
+    font-variation-settings: "opsz" 144;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .hero .lede {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--text-mute);
+    max-width: 620px;
+    margin-bottom: 40px;
+  }
+  .hero .meta {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  .hero .meta span::after { content: "·"; margin-left: 16px; color: var(--line); }
+  .hero .meta span:last-child::after { content: ""; }
+
+  .ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--line);
+    color: var(--text);
+    transition: all 0.2s;
+    background: transparent;
+    cursor: pointer;
+  }
+  .btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .btn.primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  .btn.primary:hover {
+    background: transparent;
+    color: var(--accent);
+  }
+  .btn .arrow { transition: transform 0.2s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* ─── Section base ─── */
+  section { padding: 100px 0; border-bottom: 1px solid var(--line-soft); position: relative; }
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-eyebrow .num { color: var(--accent); }
+  .section-eyebrow::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line-soft);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    font-variation-settings: "opsz" 144;
+  }
+  h2 em { font-style: italic; color: var(--accent); }
+  h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  p { margin-bottom: 18px; color: var(--text); }
+  p.mute { color: var(--text-mute); }
+
+  /* ─── Thesis section with diagram ─── */
+  .thesis-body {
+    max-width: 640px;
+  }
+  .thesis-body p { font-size: 18px; line-height: 1.7; }
+  .thesis-body strong { color: var(--accent); font-weight: 500; }
+
+  .diagram-wrap {
+    margin: 60px auto 0;
+    max-width: 720px;
+    padding: 50px 30px 30px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .diagram-wrap::before {
+    content: "FIG. 01 / UNIFIED CONTROL SYSTEM";
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+  }
+  .diagram-caption {
+    text-align: center;
+    margin-top: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── Cases ─── */
+  .case {
+    padding: 50px 0;
+    border-top: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+  }
+  .case:first-of-type { border-top: none; padding-top: 30px; }
+  @media (max-width: 720px) {
+    .case { grid-template-columns: 1fr; gap: 16px; }
+  }
+  .case-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.6;
+  }
+  .case-meta .num {
+    color: var(--accent);
+    font-size: 24px;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 12px;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .case-body h3 { margin-bottom: 18px; }
+  .case-body .field {
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .case-body .field strong {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 8px;
+    transform: translateY(-1px);
+  }
+
+  /* ─── Credentials ─── */
+  .creds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 36px;
+  }
+  .cred {
+    padding: 20px 22px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    transition: border-color 0.2s;
+  }
+  .cred:hover { border-color: var(--accent); }
+  .cred .code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .cred .name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .cred .issuer {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  .cred-group-head {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-top: 40px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .cred-group-head:first-of-type { margin-top: 36px; }
+
+  .recognition-list {
+    list-style: none;
+    margin-top: 16px;
+  }
+  .recognition-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .recognition-list li:last-child { border-bottom: none; }
+  .recognition-list .marker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    min-width: 30px;
+  }
+
+  /* ─── Writing list ─── */
+  .essay {
+    padding: 32px 0;
+    border-top: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    transition: opacity 0.2s;
+  }
+  .essay:first-of-type { border-top: none; padding-top: 8px; }
+  .essay .num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+  .essay h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+  }
+  .essay .blurb {
+    font-size: 15px;
+    color: var(--text-mute);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .essay .status {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  @media (max-width: 720px) {
+    .essay { grid-template-columns: 1fr; gap: 8px; }
+    .essay .num, .essay .status { display: inline-block; margin-right: 8px; }
+  }
+
+  /* ─── Speaking ─── */
+  .speak-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 36px;
+  }
+  @media (max-width: 720px) { .speak-grid { grid-template-columns: 1fr; } }
+  .speak-card {
+    padding: 28px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+  }
+  .speak-card .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .speak-card p { font-size: 15px; color: var(--text-mute); margin: 0; }
+
+  /* ─── Publications ─── */
+  .pub-list { list-style: none; margin-top: 16px; }
+  .pub-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .pub-list li:last-child { border-bottom: none; }
+  .pub-list .venue {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 720px) {
+    .pub-list li { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* ─── About ─── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 60px;
+    align-items: start;
+  }
+  @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-grid p { font-size: 17px; line-height: 1.7; }
+  .about-side {
+    padding: 24px;
+    background: var(--bg-soft);
+    border-left: 2px solid var(--accent);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text-mute);
+  }
+  .about-side .key {
+    color: var(--text-dim);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .about-side > div { margin-bottom: 18px; }
+  .about-side > div:last-child { margin-bottom: 0; }
+
+  /* ─── Contact / footer ─── */
+  footer {
+    padding: 100px 0 60px;
+    text-align: left;
+  }
+  footer h2 { margin-bottom: 36px; }
+  .contact-list {
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+  .contact-list li {
+    border-bottom: 1px solid var(--line);
+    transition: background 0.2s;
+  }
+  .contact-list li a {
+    display: grid;
+    grid-template-columns: 130px 1fr 30px;
+    gap: 24px;
+    padding: 22px 0;
+    align-items: center;
+  }
+  .contact-list li:hover { background: var(--bg-soft); padding: 0 16px; }
+  .contact-list .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+  }
+  .contact-list .value {
+    font-family: var(--font-display);
+    font-size: 19px;
+    color: var(--text);
+  }
+  .contact-list .arrow {
+    font-family: var(--font-mono);
+    color: var(--text-dim);
+    transition: transform 0.2s, color 0.2s;
+  }
+  .contact-list li:hover .arrow {
+    transform: translateX(4px);
+    color: var(--accent);
+  }
+  .colophon {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line-soft);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── Animation: subtle reveal on load ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp 0.7s ease-out backwards; }
+  .hero .eyebrow { animation-delay: 0.05s; }
+  .hero h1       { animation-delay: 0.15s; }
+  .hero .lede    { animation-delay: 0.25s; }
+  .hero .meta    { animation-delay: 0.35s; }
+  .hero .ctas    { animation-delay: 0.45s; }
+
+  /* SVG diagram styling */
+  .control-diagram { width: 100%; height: auto; display: block; }
+  .control-diagram .circle { fill-opacity: 0.08; transition: fill-opacity 0.4s; }
+  .control-diagram .circle:hover { fill-opacity: 0.18; }
+  .control-diagram text { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em; }
+  .control-diagram .core-text { font-family: var(--font-display); font-style: italic; font-size: 14px; fill: var(--accent); }
+  .control-diagram .label-text { fill: var(--text); }
+  .control-diagram .core { fill: var(--accent); fill-opacity: 0.15; stroke: var(--accent); stroke-width: 1.5; }
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <div class="wrap-wide">
+    <a href="#top" class="logo">kanjar de<span class="dot">.</span></a>
+    <ul>
+      <li><a href="#approach">approach</a></li>
+      <li><a href="#work">work</a></li>
+      <li><a href="#credentials">credentials</a></li>
+      <li><a href="#writing">writing</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Responsible AI Engineer</div>
+    <h1>I build AI systems for high-risk domains and <em>govern them</em> under the EU AI Act, ISO 42001, and NIST AI RMF.</h1>
+    <p class="lede">Applied AI research background. Two-time ERCIM fellow. Currently at RISE Sweden under EU TEF-Health, with an affiliated researcher role at Karolinska Institutet.</p>
+    <div class="meta">
+      <span>Stockholm</span>
+      <span>Open to roles in Europe, Asia, North America</span>
+      <span>Available for advisory &amp; fractional engagements</span>
+    </div>
+    <div class="ctas">
+      <a href="#contact" class="btn primary">Get in touch <span class="arrow">→</span></a>
+      <a href="#" class="btn">Download CV</a>
+      <a href="https://www.linkedin.com/in/kanjar-de" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ APPROACH / THESIS ═══════════ -->
+<section id="approach">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">01</span> Approach</div>
+    <h2>Governance is not a checklist. It is a <em>control system.</em></h2>
+
+    <div class="thesis-body">
+      <p class="mute">Most organisations stack frameworks. ISO 42001 sits next to ISO 27001, which sits next to NIST AI RMF, which sits next to whatever the EU AI Act demands. Each gets its own audit, its own owner, its own spreadsheet.</p>
+      <p class="mute">This is expensive, slow, and produces gaps at the seams — exactly where high-risk AI fails.</p>
+      <p>I work the other direction. The frameworks are different views of the same problem: <strong>what could go wrong, who is accountable, and how do we prove it didn't.</strong> When you map the controls across ISO 42001, ISO 31000, ISO 27001, NIST AI RMF, the EU AI Act, and CSA AICM, the overlaps are roughly 70%. The remaining 30% is where you focus — and that's only visible if you treat them as one system.</p>
+      <p class="mute">This is the work. Harmonising controls. Closing seams. Producing a single source of truth a regulator, an auditor, and an engineer can all read.</p>
+    </div>
+
+    <!-- Unified Control System diagram -->
+    <div class="diagram-wrap">
+      <svg class="control-diagram" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six AI governance frameworks overlapping into a unified control system">
+        <!-- Connecting hairlines -->
+        <g stroke="#232831" stroke-width="0.5" fill="none" opacity="0.5">
+          <circle cx="350" cy="250" r="180" stroke-dasharray="2 4"/>
+        </g>
+
+        <!-- Six framework circles, arranged hexagonally around a central core -->
+        <!-- Position: 6 circles equidistant from center (350, 250), radius 110 from center, circles r=95 -->
+        <g class="frameworks">
+          <!-- Top -->
+          <circle class="circle" cx="350" cy="140" r="95" fill="#7fb3d5"/>
+          <!-- Top-right -->
+          <circle class="circle" cx="445" cy="195" r="95" fill="#d4a574"/>
+          <!-- Bottom-right -->
+          <circle class="circle" cx="445" cy="305" r="95" fill="#7fb3d5"/>
+          <!-- Bottom -->
+          <circle class="circle" cx="350" cy="360" r="95" fill="#d4a574"/>
+          <!-- Bottom-left -->
+          <circle class="circle" cx="255" cy="305" r="95" fill="#7fb3d5"/>
+          <!-- Top-left -->
+          <circle class="circle" cx="255" cy="195" r="95" fill="#d4a574"/>
+        </g>
+
+        <!-- Core overlap -->
+        <circle class="core" cx="350" cy="250" r="55"/>
+
+        <!-- Framework labels (positioned outside circles) -->
+        <g class="label-text">
+          <text x="350" y="40"  text-anchor="middle">ISO 42001</text>
+          <text x="350" y="55"  text-anchor="middle" fill="#6b7280" font-size="9">AI MGMT</text>
+
+          <text x="555" y="160" text-anchor="middle">EU AI ACT</text>
+          <text x="555" y="175" text-anchor="middle" fill="#6b7280" font-size="9">REGULATION</text>
+
+          <text x="555" y="335" text-anchor="middle">NIST AI RMF</text>
+          <text x="555" y="350" text-anchor="middle" fill="#6b7280" font-size="9">RISK FRAMEWORK</text>
+
+          <text x="350" y="465" text-anchor="middle">ISO 27001</text>
+          <text x="350" y="480" text-anchor="middle" fill="#6b7280" font-size="9">INFOSEC</text>
+
+          <text x="145" y="335" text-anchor="middle">CSA AICM</text>
+          <text x="145" y="350" text-anchor="middle" fill="#6b7280" font-size="9">AI CONTROLS</text>
+
+          <text x="145" y="160" text-anchor="middle">ISO 31000</text>
+          <text x="145" y="175" text-anchor="middle" fill="#6b7280" font-size="9">RISK MGMT</text>
+        </g>
+
+        <!-- Core text -->
+        <text class="core-text" x="350" y="247" text-anchor="middle">shared</text>
+        <text class="core-text" x="350" y="265" text-anchor="middle">controls</text>
+      </svg>
+      <p class="diagram-caption">Six frameworks. One control system. The overlap is the point.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WORK ═══════════ -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">02</span> Selected Work</div>
+    <h2>Five projects across <em>healthcare, autonomous systems, and applied research.</em></h2>
+    <p class="mute" style="max-width:600px; margin-top:20px;">Each reframed to surface the governance and risk dimension — work that has been safety-relevant for a decade, before it had a regulatory name.</p>
+
+    <div style="margin-top: 50px;">
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="num">01</span>
+          RISE × Karolinska<br>
+          Nov 2024 — Present<br>
+          EU TEF-Health
+        </div>
+        <div class="case-body">
+          <h3>Healthcare AI under EU TEF-Health</h3>
+          <p class="field"><strong>Context</strong>The European Testing and Experimentation Facility for AI in healthcare — the regulatory sandbox where high-risk medical AI gets validated before deployment.</p>
+          <p class="field"><strong>Work</strong>Designing and benchmarking AI models for clinical data — diagnostics, image analysis, decision support. Robustness, interpretability, and clinical-grade evaluation are hard requirements, not afterthoughts.</p>
+          <p class="field"><strong>Governance</strong>Medical AI is high-risk under the EU AI Act. Every system requires a risk management file, technical documentation, post-market monitoring plan, and human oversight design. I work the engineering and the documentation in parallel.</p>
+          <p class="field"><strong>Status</strong>Ongoing. Affiliated researcher status at Karolinska Institutet bridges the engineering and clinical sides.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="num">02</span>
+          NTNU Norway<br>
+          ERCIM Fellowship<br>
+          2019 — 2020
+        </div>
+        <div class="case-body">
+          <h3>Robustness of vision models to colour distortions</h3>
+          <p class="field"><strong>Context</strong>Image quality degrades silently in production — bad sensors, lossy pipelines, lighting shifts. Adversarial robustness was well-studied; everyday colour distortions were not.</p>
+          <p class="field"><strong>Work</strong>Built the first dataset designed specifically to study colour-channel distortions on trained deep models. Measured failure modes across architectures.</p>
+          <p class="field"><strong>Governance</strong>Exactly the distribution-shift evidence the EU AI Act requires under robustness testing for high-risk vision systems. Six years before the regulation existed, the experimental playbook was already there.</p>
+          <p class="field"><strong>Outcome</strong>Two peer-reviewed publications. Best Paper award (Imaging and Multidimensional Signal Processing). Cited in subsequent robustness work.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="num">03</span>
+          Luleå University<br>
+          2021 — 2023<br>
+          Nature Sci. Data
+        </div>
+        <div class="case-body">
+          <h3>Bimodal EEG + fMRI dataset for inner-speech detection</h3>
+          <p class="field"><strong>Context</strong>Brain-computer interfaces for inner-speech rely on either EEG or fMRI alone. No public dataset combined both with synchronised acquisition.</p>
+          <p class="field"><strong>Work</strong>Led the data pipeline end-to-end — acquisition design, preprocessing, alignment, validation. Released through Nature Scientific Data and OpenNeuro under FAIR principles.</p>
+          <p class="field"><strong>Governance</strong>Neural data is among the most sensitive personal data categories under GDPR. The release process required IRB-equivalent review, anonymisation, and a reusable consent framework.</p>
+          <p class="field"><strong>Outcome</strong>Public dataset, cited by downstream BCI research. Secured Kempe Foundation Lab Development funding for an Nvidia H100 / A100 DGX cluster.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="num">04</span>
+          Luleå × AIDIH<br>
+          CVPR Workshop<br>
+          Applied AI North
+        </div>
+        <div class="case-body">
+          <h3>Nordic Vehicle Dataset — vehicle detection in snow</h3>
+          <p class="field"><strong>Context</strong>Autonomous-driving vision benchmarks under-represent winter conditions. Models trained on KITTI or Cityscapes degrade sharply in snow, low light, and occlusion — exactly Nordic operating conditions.</p>
+          <p class="field"><strong>Work</strong>Co-built the Nordic Vehicle Dataset and the accompanying benchmark. Released at a CVPR Workshop.</p>
+          <p class="field"><strong>Governance</strong>Operational design domain (ODD) is now a regulatory concept for autonomous systems. This work quantifies what falls outside the ODD of common detectors — exactly the evidence a safety case needs.</p>
+          <p class="field"><strong>Outcome</strong>Public dataset and benchmark. Cited in subsequent adverse-weather perception work.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="num">05</span>
+          Fraunhofer HHI<br>
+          ERCIM Fellowship<br>
+          2023 — 2024
+        </div>
+        <div class="case-body">
+          <h3>Video quality assessment for next-generation codecs</h3>
+          <p class="field"><strong>Context</strong>Next-generation video codecs need quality metrics that match human perception, not just bit-level fidelity.</p>
+          <p class="field"><strong>Work</strong>Benchmarked PSNR, MS-SSIM, and VMAF across emerging codecs at the Video Coding Systems group. Identified where each metric breaks.</p>
+          <p class="field"><strong>Governance</strong>Measurement-method choice is itself a governance decision. The wrong metric produces compliant numbers and a worse user experience — a pattern that recurs in every AI evaluation problem.</p>
+          <p class="field"><strong>Outcome</strong>Internal benchmarking framework adopted by the group. Second ERCIM fellowship — given to very few researchers per year across Europe.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CREDENTIALS ═══════════ -->
+<section id="credentials">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">03</span> Credentials</div>
+    <h2>Eleven certifications across <em>governance, risk, and security.</em></h2>
+
+    <div class="cred-group-head">AI Governance &amp; Risk</div>
+    <div class="creds-grid">
+      <div class="cred">
+        <div class="code">AIGP</div>
+        <div class="name">AI Governance Professional</div>
+        <div class="issuer">IAPP</div>
+      </div>
+      <div class="cred">
+        <div class="code">RAI</div>
+        <div class="name">Responsible AI</div>
+        <div class="issuer">GARP</div>
+      </div>
+      <div class="cred">
+        <div class="code">CPMAI</div>
+        <div class="name">AI Project Management</div>
+        <div class="issuer">PMI</div>
+      </div>
+      <div class="cred">
+        <div class="code">ISO 42001</div>
+        <div class="name">Lead Implementer · AI MS</div>
+        <div class="issuer">TÜV SÜD</div>
+      </div>
+      <div class="cred">
+        <div class="code">ISO 27001</div>
+        <div class="name">Lead Implementer · InfoSec</div>
+        <div class="issuer">TÜV SÜD</div>
+      </div>
+      <div class="cred">
+        <div class="code">ISO 31000</div>
+        <div class="name">Risk Management</div>
+        <div class="issuer">TÜV SÜD</div>
+      </div>
+      <div class="cred">
+        <div class="code">GPM-b</div>
+        <div class="name">Sustainability in PM</div>
+        <div class="issuer">PMI</div>
+      </div>
+      <div class="cred">
+        <div class="code">OKR</div>
+        <div class="name">Leadership &amp; Goal Setting</div>
+        <div class="issuer">Certified</div>
+      </div>
+      <div class="cred">
+        <div class="code">SMI</div>
+        <div class="name">Strategic Management &amp; Innovation</div>
+        <div class="issuer">Specialization</div>
+      </div>
+      <div class="cred">
+        <div class="code">DS</div>
+        <div class="name">Data Science</div>
+        <div class="issuer">Fractal</div>
+      </div>
+      <div class="cred" style="border-color: var(--accent); border-style: dashed;">
+        <div class="code" style="color: var(--accent-2);">TAISE</div>
+        <div class="name">Trusted AI Systems Engineer</div>
+        <div class="issuer">In progress</div>
+      </div>
+    </div>
+
+    <div class="cred-group-head">Recognition</div>
+    <ul class="recognition-list">
+      <li><span class="marker">★★</span><span><strong>Two-time ERCIM Alain Bensoussan Fellow</strong> — Fraunhofer HHI Berlin · NTNU Norway · awarded to very few researchers annually across Europe.</span></li>
+      <li><span class="marker">★</span><span><strong>Best Paper Award</strong> — Imaging and Multidimensional Signal Processing.</span></li>
+      <li><span class="marker">★</span><span><strong>Best Poster Award.</strong></span></li>
+      <li><span class="marker">★</span><span><strong>Hackathon — First Place.</strong></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════ WRITING ═══════════ -->
+<section id="writing">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">04</span> Writing</div>
+    <h2>Essays in <em>preparation.</em></h2>
+    <p class="mute" style="max-width:600px;">Four pieces I'm working on. Drop your email at the bottom of the page if you'd like to be notified when each goes live.</p>
+
+    <div style="margin-top: 40px;">
+      <article class="essay">
+        <div class="num">01 /04</div>
+        <div>
+          <h3>Why I treat ISO 42001 and NIST AI RMF as one control system</h3>
+          <p class="blurb">Most teams pick one and bolt the other on. That produces two binders, two audits, and a seam in the middle where high-risk AI fails. The 70% overlap, the 30% delta, and why the delta is where the real work is.</p>
+        </div>
+        <div class="status">Drafting</div>
+      </article>
+
+      <article class="essay">
+        <div class="num">02 /04</div>
+        <div>
+          <h3>Reading a model card like a regulator</h3>
+          <p class="blurb">A good model card is a risk document in disguise. How to read training data sections for distribution-shift exposure, evaluation tables for under-tested populations, and limitations sections for the unsaid. With a worked example.</p>
+        </div>
+        <div class="status">Outlined</div>
+      </article>
+
+      <article class="essay">
+        <div class="num">03 /04</div>
+        <div>
+          <h3>OWASP Top 10 for LLMs in clinical settings</h3>
+          <p class="blurb">Prompt injection in a triage chatbot is not the same risk as prompt injection in a marketing assistant. Each item mapped to a clinical scenario, with the controls that actually mitigate it.</p>
+        </div>
+        <div class="status">Planned</div>
+      </article>
+
+      <article class="essay">
+        <div class="num">04 /04</div>
+        <div>
+          <h3>The 30% you can't copy from ISO 27001</h3>
+          <p class="blurb">AI governance teams often start by cloning their ISMS. It gets them to 70% on ISO 42001 fast — and then they hit the AI-specific 30%. What those controls look like and why they're unfamiliar territory for security-trained teams.</p>
+        </div>
+        <div class="status">Planned</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SPEAKING / ADVISORY ═══════════ -->
+<section id="advisory">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">05</span> Speaking &amp; Advisory</div>
+    <h2>Available for <em>three kinds of engagement.</em></h2>
+
+    <div class="speak-grid">
+      <div class="speak-card">
+        <div class="label">Advisory</div>
+        <p>Fractional and advisory engagements on AI governance and high-risk AI deployment. Particularly suited to healthcare, finance, and regulated industries.</p>
+      </div>
+      <div class="speak-card">
+        <div class="label">Course Development</div>
+        <p>Curriculum and course development for MLOps, production ML, and responsible AI programs at universities and corporate training providers.</p>
+      </div>
+      <div class="speak-card">
+        <div class="label">Speaking</div>
+        <p>Conference talks and panels on responsible AI in regulated industries, ISO 42001 implementation, and the governance of high-risk systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PUBLICATIONS ═══════════ -->
+<section id="publications">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">06</span> Publications</div>
+    <h2>Selected <em>peer-reviewed work.</em></h2>
+
+    <div class="cred-group-head">Conferences &amp; Journals</div>
+    <ul class="pub-list">
+      <li><span class="venue">ICCV WS '21</span><span>Impact of colour on robustness of deep neural networks</span></li>
+      <li><span class="venue">EI '22</span><span>Effect of hue shift towards robustness of convolutional neural networks</span></li>
+      <li><span class="venue">Journal</span><span>Exploring effects of colour and image quality in semantic segmentation by deep learning methods</span></li>
+      <li><span class="venue">ICDAR '19</span><span>Zero shot learning based script identification in the wild</span></li>
+      <li><span class="venue">ACCV '18</span><span>GAN-based image colorization</span></li>
+      <li><span class="venue">IEEE TCSS</span><span>Movie recommendation system using sentiment analysis from microblogging data</span></li>
+      <li><span class="venue">CVPR WS</span><span>Nordic Vehicle Dataset</span></li>
+    </ul>
+
+    <div class="cred-group-head">Datasets</div>
+    <ul class="pub-list">
+      <li><span class="venue">Nature SD</span><span>Bimodal EEG + fMRI inner-speech dataset (also OpenNeuro)</span></li>
+      <li><span class="venue">CVPR WS</span><span>Nordic Vehicle Dataset — public benchmark</span></li>
+      <li><span class="venue">ICCV WS</span><span>Colour-distortion benchmark dataset for DNN robustness</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">07</span> About</div>
+    <h2>The thread is <em>signal processing.</em></h2>
+
+    <div class="about-grid" style="margin-top: 40px;">
+      <div>
+        <p>I started as an electronics and communications engineer, did a master's in IT in Bangalore, and a PhD in computer science at IIIT Design &amp; Manufacturing Kancheepuram. The thread through all of it has been signal processing — first electrical signals, then images, then video, then the messy multimodal data inside a hospital.</p>
+        <p>Two ERCIM fellowships took me to Norway and Germany. A research role in Sweden's Arctic north taught me how to build datasets and infrastructure from scratch. I now live in Stockholm and work at the intersection of applied AI research and AI governance — building healthcare AI systems under the EU's TEF-Health programme and harmonising the regulatory frameworks they have to live under.</p>
+        <p class="mute">When I'm not navigating AI regulations, I'm navigating trails. Hiking is how I reset.</p>
+      </div>
+      <aside class="about-side">
+        <div>
+          <span class="key">Based</span>
+          Stockholm, Sweden
+        </div>
+        <div>
+          <span class="key">Roots</span>
+          Delhi NCR, India
+        </div>
+        <div>
+          <span class="key">Education</span>
+          PhD · IIITDM Kancheepuram<br>
+          MTech · IIIT Bangalore<br>
+          BTech · SMIT
+        </div>
+        <div>
+          <span class="key">Languages</span>
+          English · Hindi · Bengali
+        </div>
+        <div>
+          <span class="key">Off-screen</span>
+          Trail hiking
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT / FOOTER ═══════════ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">08</span> Contact</div>
+    <h2>Best reached by <em>email or LinkedIn.</em></h2>
+
+    <ul class="contact-list">
+      <li><a href="mailto:kanjar.de@gmail.com">
+        <span class="label">Email</span>
+        <span class="value">kanjar.de@gmail.com</span>
+        <span class="arrow">→</span>
+      </a></li>
+      <li><a href="https://www.linkedin.com/in/kanjar-de" target="_blank" rel="noopener">
+        <span class="label">LinkedIn</span>
+        <span class="value">linkedin.com/in/kanjar-de</span>
+        <span class="arrow">↗</span>
+      </a></li>
+      <li><a href="#" id="scholar-link">
+        <span class="label">Scholar</span>
+        <span class="value" style="color: var(--text-dim);">Add Google Scholar URL</span>
+        <span class="arrow">↗</span>
+      </a></li>
+      <li><a href="https://github.com/kanlions" target="_blank" rel="noopener">
+        <span class="label">GitHub</span>
+        <span class="value">github.com/kanlions</span>
+        <span class="arrow">↗</span>
+      </a></li>
+    </ul>
+
+    <div class="colophon">
+      <span>© 2026 Kanjar De · Stockholm · kanlions.github.io</span>
+      <span>Set in Fraunces &amp; JetBrains Mono · Built with HTML &amp; CSS</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
