@@ -348,9 +348,27 @@
     padding: 20px 22px;
     background: var(--bg-soft);
     border: 1px solid var(--line);
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, transform 0.2s;
+    display: block;
+    position: relative;
   }
   .cred:hover { border-color: var(--accent); }
+  a.cred { cursor: pointer; }
+  a.cred:hover { transform: translateY(-2px); color: inherit; }
+  a.cred::after {
+    content: "↗";
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    transition: color 0.2s, transform 0.2s;
+  }
+  a.cred:hover::after {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
   .cred .code {
     font-family: var(--font-mono);
     font-size: 11px;
@@ -621,8 +639,8 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow">Responsible AI Engineer</div>
-    <h1>I build AI systems for high-risk domains and <em>govern them</em> under the EU AI Act, ISO 42001, and NIST AI RMF.</h1>
-    <p class="lede">Applied AI research background. Two-time ERCIM fellow. Currently at RISE Sweden under EU TEF-Health, with an affiliated researcher role at Karolinska Institutet.</p>
+    <h1>Building high-risk AI is hard.<br><em>Governing it is harder. I do both.</em></h1>
+    <p class="lede">Responsible AI engineer working across the EU AI Act, ISO 42001, and NIST AI RMF. Applied AI research background, two-time ERCIM fellow. Currently at RISE Sweden under EU TEF-Health, with an affiliated researcher role at Karolinska Institutet.</p>
     <div class="meta">
       <span>Stockholm</span>
       <span>Open to roles in Europe, Asia, North America</span>
@@ -630,7 +648,7 @@
     </div>
     <div class="ctas">
       <a href="#contact" class="btn primary">Get in touch <span class="arrow">→</span></a>
-      <a href="#" class="btn">Download CV</a>
+      <a href="cv.pdf" class="btn" target="_blank" rel="noopener">Download CV</a>
       <a href="https://www.linkedin.com/in/kanjar-de" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
     </div>
   </div>
@@ -728,7 +746,7 @@
           <p class="field"><strong>Context</strong>The European Testing and Experimentation Facility for AI in healthcare — the regulatory sandbox where high-risk medical AI gets validated before deployment.</p>
           <p class="field"><strong>Work</strong>Designing and benchmarking AI models for clinical data — diagnostics, image analysis, decision support. Robustness, interpretability, and clinical-grade evaluation are hard requirements, not afterthoughts.</p>
           <p class="field"><strong>Governance</strong>Medical AI is high-risk under the EU AI Act. Every system requires a risk management file, technical documentation, post-market monitoring plan, and human oversight design. I work the engineering and the documentation in parallel.</p>
-          <p class="field"><strong>Status</strong>Ongoing. Affiliated researcher status at Karolinska Institutet bridges the engineering and clinical sides.</p>
+          <p class="field"><strong>Status</strong>Ongoing. Affiliated researcher status at Karolinska Institutet bridges the engineering and clinical sides. Project portal: <a href="https://metric.ptb.de/" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">metric.ptb.de</a>.</p>
         </div>
       </article>
 
@@ -760,7 +778,7 @@
           <p class="field"><strong>Context</strong>Brain-computer interfaces for inner-speech rely on either EEG or fMRI alone. No public dataset combined both with synchronised acquisition.</p>
           <p class="field"><strong>Work</strong>Led the data pipeline end-to-end — acquisition design, preprocessing, alignment, validation. Released through Nature Scientific Data and OpenNeuro under FAIR principles.</p>
           <p class="field"><strong>Governance</strong>Neural data is among the most sensitive personal data categories under GDPR. The release process required IRB-equivalent review, anonymisation, and a reusable consent framework.</p>
-          <p class="field"><strong>Outcome</strong>Public dataset, cited by downstream BCI research. Secured Kempe Foundation Lab Development funding for an Nvidia H100 / A100 DGX cluster.</p>
+          <p class="field"><strong>Outcome</strong>Public dataset on <a href="https://openneuro.org/datasets/ds004196/versions/2.0.2" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">OpenNeuro</a>, cited by downstream BCI research.</p>
         </div>
       </article>
 
@@ -776,7 +794,7 @@
           <p class="field"><strong>Context</strong>Autonomous-driving vision benchmarks under-represent winter conditions. Models trained on KITTI or Cityscapes degrade sharply in snow, low light, and occlusion — exactly Nordic operating conditions.</p>
           <p class="field"><strong>Work</strong>Co-built the Nordic Vehicle Dataset and the accompanying benchmark. Released at a CVPR Workshop.</p>
           <p class="field"><strong>Governance</strong>Operational design domain (ODD) is now a regulatory concept for autonomous systems. This work quantifies what falls outside the ODD of common detectors — exactly the evidence a safety case needs.</p>
-          <p class="field"><strong>Outcome</strong>Public dataset and benchmark. Cited in subsequent adverse-weather perception work.</p>
+          <p class="field"><strong>Outcome</strong><a href="https://nvd.ltu-ai.dev/" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">Public dataset and benchmark</a>. Cited in subsequent adverse-weather perception work.</p>
         </div>
       </article>
 
@@ -789,10 +807,10 @@
         </div>
         <div class="case-body">
           <h3>Video quality assessment for next-generation codecs</h3>
-          <p class="field"><strong>Context</strong>Next-generation video codecs need quality metrics that match human perception, not just bit-level fidelity.</p>
-          <p class="field"><strong>Work</strong>Benchmarked PSNR, MS-SSIM, and VMAF across emerging codecs at the Video Coding Systems group. Identified where each metric breaks.</p>
-          <p class="field"><strong>Governance</strong>Measurement-method choice is itself a governance decision. The wrong metric produces compliant numbers and a worse user experience — a pattern that recurs in every AI evaluation problem.</p>
-          <p class="field"><strong>Outcome</strong>Internal benchmarking framework adopted by the group. Second ERCIM fellowship — given to very few researchers per year across Europe.</p>
+          <p class="field"><strong>Context</strong>Next-generation video codecs need quality metrics that match human perception, not just bit-level fidelity. Modern competitions are dominated by 300M-parameter deep learning models that are accurate but uninterpretable.</p>
+          <p class="field"><strong>Work</strong>At the Video Coding Systems group, benchmarked PSNR, MS-SSIM, and VMAF across emerging codecs. Then competed in the AIM 2024 Compressed VQA Challenge (ECCV Workshops) as a solo entry, with an interpretable Full-Reference method using classical transform-based features and SVR-based multimethod fusion.</p>
+          <p class="field"><strong>Governance</strong>Measurement-method choice is itself a governance decision. The wrong metric produces compliant numbers and worse user experience. Interpretability matters in regulated AI — a model whose features you can explain is a model an auditor can defend.</p>
+          <p class="field"><strong>Outcome</strong>Placed 4th of 6 finalists at <a href="https://arxiv.org/abs/2408.11982" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">AIM 2024 ECCV Workshop</a> — the only Full-Reference and only interpretable solution in the finals, against established stalwarts running 90M–390M parameter VLM-based models. ERCIM-funded research at Fraunhofer HHI.</p>
         </div>
       </article>
 
@@ -808,56 +826,57 @@
 
     <div class="cred-group-head">AI Governance &amp; Risk</div>
     <div class="creds-grid">
-      <div class="cred">
+      <!-- To make any card clickable: change <div class="cred"> to <a class="cred" href="VERIFICATION_URL" target="_blank" rel="noopener"> and </div> to </a> -->
+      <a class="cred" href="https://www.credential.net/c2806d8a-bf68-4640-b44a-98f9f2044884?key=01a107a4d7cff6ae6e10250124a064b50770861f35eb04e8334b300380a47f9a" target="_blank" rel="noopener">
         <div class="code">AIGP</div>
         <div class="name">AI Governance Professional</div>
         <div class="issuer">IAPP</div>
-      </div>
-      <div class="cred">
+      </a>
+      <a class="cred" href="https://my.garp.org/DigitalBadgeRAI?id=003Po00001HQVqfIAH" target="_blank" rel="noopener">
         <div class="code">RAI</div>
         <div class="name">Responsible AI</div>
         <div class="issuer">GARP</div>
-      </div>
-      <div class="cred">
+      </a>
+      <a class="cred" href="https://www.credly.com/badges/5ea762bd-ba98-4ef2-8b6a-0b41c9443c83" target="_blank" rel="noopener">
         <div class="code">CPMAI</div>
         <div class="name">AI Project Management</div>
         <div class="issuer">PMI</div>
-      </div>
-      <div class="cred">
+      </a>
+      <a class="cred" href="https://portal.itscredible.com/qr/042040537712" target="_blank" rel="noopener">
         <div class="code">ISO 42001</div>
         <div class="name">Lead Implementer · AI MS</div>
         <div class="issuer">TÜV SÜD</div>
-      </div>
-      <div class="cred">
+      </a>
+      <a class="cred" href="https://portal.itscredible.com/qr/269750353490" target="_blank" rel="noopener">
         <div class="code">ISO 27001</div>
         <div class="name">Lead Implementer · InfoSec</div>
         <div class="issuer">TÜV SÜD</div>
-      </div>
-      <div class="cred">
+      </a>
+      <a class="cred" href="https://portal.itscredible.com/qr/623718943158" target="_blank" rel="noopener">
         <div class="code">ISO 31000</div>
         <div class="name">Risk Management</div>
         <div class="issuer">TÜV SÜD</div>
-      </div>
-      <div class="cred">
+      </a>
+      <a class="cred" href="https://www.credly.com/badges/f9cfbdcf-32ca-4e5b-91c6-d95486fcd453" target="_blank" rel="noopener">
         <div class="code">GPM-b</div>
         <div class="name">Sustainability in PM</div>
         <div class="issuer">PMI</div>
-      </div>
-      <div class="cred">
+      </a>
+      <a class="cred" href="https://www.coursera.org/account/accomplishments/certificate/4H9ND6LTVJ75" target="_blank" rel="noopener">
         <div class="code">OKR</div>
         <div class="name">Leadership &amp; Goal Setting</div>
-        <div class="issuer">Certified</div>
-      </div>
-      <div class="cred">
+        <div class="issuer">Coursera</div>
+      </a>
+      <a class="cred" href="https://www.coursera.org/account/accomplishments/specialization/ETVZSD2E43HA" target="_blank" rel="noopener">
         <div class="code">SMI</div>
         <div class="name">Strategic Management &amp; Innovation</div>
-        <div class="issuer">Specialization</div>
-      </div>
-      <div class="cred">
+        <div class="issuer">Coursera</div>
+      </a>
+      <a class="cred" href="https://www.coursera.org/account/accomplishments/specialization/LXVBMWX3Z63K" target="_blank" rel="noopener">
         <div class="code">DS</div>
         <div class="name">Data Science</div>
-        <div class="issuer">Fractal</div>
-      </div>
+        <div class="issuer">Fractal · Coursera</div>
+      </a>
       <div class="cred" style="border-color: var(--accent); border-style: dashed;">
         <div class="code" style="color: var(--accent-2);">TAISE</div>
         <div class="name">Trusted AI Systems Engineer</div>
@@ -868,9 +887,9 @@
     <div class="cred-group-head">Recognition</div>
     <ul class="recognition-list">
       <li><span class="marker">★★</span><span><strong>Two-time ERCIM Alain Bensoussan Fellow</strong> — Fraunhofer HHI Berlin · NTNU Norway · awarded to very few researchers annually across Europe.</span></li>
-      <li><span class="marker">★</span><span><strong>Best Paper Award</strong> — Imaging and Multidimensional Signal Processing.</span></li>
-      <li><span class="marker">★</span><span><strong>Best Poster Award.</strong></span></li>
-      <li><span class="marker">★</span><span><strong>Hackathon — First Place.</strong></span></li>
+      <li><span class="marker">$</span><span><strong>Kempe Foundation Lab Development Grant</strong> — secured funding for an Nvidia H100 / A100 DGX GPU cluster at Luleå University of Technology.</span></li>
+      <li><span class="marker">★</span><span><strong>Best Paper Award</strong> — Imaging and Multidimensional Signal Processing · IEEE Students' Technology Symposium (TechSym) 2016.</span></li>
+      <li><span class="marker">★</span><span><strong>Best Poster Award</strong> — IEEE Students' Technology Symposium (TechSym) 2016.</span></li>
     </ul>
   </div>
 </section>
@@ -949,24 +968,50 @@
 <section id="publications">
   <div class="wrap">
     <div class="section-eyebrow"><span class="num">06</span> Publications</div>
-    <h2>Selected <em>peer-reviewed work.</em></h2>
+    <h2>Selected work across <em>governance, robustness, healthcare AI, and image quality.</em></h2>
+    <p class="mute" style="max-width:600px; margin-top:20px;">A curated subset. Full list — 40+ peer-reviewed papers — on <a href="https://scholar.google.com/citations?user=e0rpZKsAAAAJ" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">Google Scholar</a>.</p>
 
-    <div class="cred-group-head">Conferences &amp; Journals</div>
+    <div class="cred-group-head">AI Governance &amp; Regulation</div>
     <ul class="pub-list">
-      <li><span class="venue">ICCV WS '21</span><span>Impact of colour on robustness of deep neural networks</span></li>
-      <li><span class="venue">EI '22</span><span>Effect of hue shift towards robustness of convolutional neural networks</span></li>
-      <li><span class="venue">Journal</span><span>Exploring effects of colour and image quality in semantic segmentation by deep learning methods</span></li>
-      <li><span class="venue">ICDAR '19</span><span>Zero shot learning based script identification in the wild</span></li>
-      <li><span class="venue">ACCV '18</span><span>GAN-based image colorization</span></li>
-      <li><span class="venue">IEEE TCSS</span><span>Movie recommendation system using sentiment analysis from microblogging data</span></li>
-      <li><span class="venue">CVPR WS</span><span>Nordic Vehicle Dataset</span></li>
+      <li><span class="venue">ESREL '26</span><span>Shukla, A. &amp; <strong>De, K.</strong> The Emerging EU Regulatory Landscape: Risks, Operational Challenges, and Opportunities for Coherent Compliance. European Safety and Reliability Conference. <em>Accepted.</em></span></li>
+      <li><span class="venue">MICCAI '25</span><span><strong>De, K.</strong> &amp; Salehi M., A. Three Countries, Three Continents: AI Medical Device Regulation and Certification Comparison in the US, EU, and South Korea. Springer Nature.</span></li>
     </ul>
 
-    <div class="cred-group-head">Datasets</div>
+    <div class="cred-group-head">Robustness &amp; Distribution Shift</div>
     <ul class="pub-list">
-      <li><span class="venue">Nature SD</span><span>Bimodal EEG + fMRI inner-speech dataset (also OpenNeuro)</span></li>
-      <li><span class="venue">CVPR WS</span><span>Nordic Vehicle Dataset — public benchmark</span></li>
-      <li><span class="venue">ICCV WS</span><span>Colour-distortion benchmark dataset for DNN robustness</span></li>
+      <li><span class="venue">ECCV WS '24</span><span>Smirnov, M. et al. (incl. <strong>De, K.</strong>). AIM 2024 Challenge on Compressed Video Quality Assessment: Methods and Results. ECCV Workshops — placed 4th of 6 finalists with interpretable Full-Reference solution.</span></li>
+      <li><span class="venue">ECCV '24</span><span>Chhipa, P. C., <strong>De, K.</strong>, Chippa, M. S., Saini, R., &amp; Liwicki, M. Open-Vocabulary Object Detectors: Robustness Challenges Under Distribution Shifts. Springer.</span></li>
+      <li><span class="venue">ECCV '24</span><span>Chhipa, P. C., Chippa, M. S., <strong>De, K.</strong>, Saini, R., Liwicki, M., &amp; Shah, M. Möbius Transform for Mitigating Perspective Distortions in Representation Learning. Springer.</span></li>
+      <li><span class="venue">ICCV WS '21</span><span><strong>De, K.</strong> &amp; Pedersen, M. Impact of Colour on Robustness of Deep Neural Networks. IEEE/CVF.</span></li>
+      <li><span class="venue">EI '22</span><span><strong>De, K.</strong> &amp; Pedersen, M. Effect of Hue Shift Towards Robustness of Convolutional Neural Networks. Society for Imaging Sciences and Technology.</span></li>
+      <li><span class="venue">JIST '22</span><span><strong>De, K.</strong> Exploring Effects of Colour and Image Quality in Semantic Segmentation by Deep Learning Methods. Journal of Imaging Science and Technology.</span></li>
+      <li><span class="venue">ICCV WS '23</span><span>Chhipa, P. C., Holmgren, J. R., <strong>De, K.</strong>, Saini, R., &amp; Liwicki, M. Can Self-Supervised Representation Learning Methods Withstand Distribution Shifts and Corruptions?</span></li>
+    </ul>
+
+    <div class="cred-group-head">Healthcare &amp; Neural AI</div>
+    <ul class="pub-list">
+      <li><span class="venue">Sci. Reports '25</span><span>Shaik, A., Dutta, S. S., Sawant, I. M., Kumar, S., Balasundaram, A., &amp; <strong>De, K.</strong> An Attention Based Hybrid Approach Using CNN and BiLSTM for Improved Skin Lesion Classification. Nature Scientific Reports.</span></li>
+      <li><span class="venue">Sci. Data '23</span><span>Simistira Liwicki, F. et al. (incl. <strong>De, K.</strong>). Bimodal Electroencephalography-Functional Magnetic Resonance Imaging Dataset for Inner-Speech Recognition. Nature Scientific Data.</span></li>
+      <li><span class="venue">Sci. Data '23</span><span>Mishra, A. R. et al. (incl. <strong>De, K.</strong>). SignEEG v1.0: Multimodal Dataset with EEG and Hand-Written Signature for Biometric Systems. Nature Scientific Data.</span></li>
+      <li><span class="venue">EMBC '24</span><span>Wellington, S. et al. (incl. <strong>De, K.</strong>). Improving Inner Speech Decoding by Hybridisation of Bimodal EEG and fMRI Data. IEEE Engineering in Medicine and Biology Society.</span></li>
+      <li><span class="venue">CVPR WS '23</span><span>Mokayed, H., Nayebiastaneh, A., <strong>De, K.</strong>, Sozos, S., Hagner, O., &amp; Backe, B. Nordic Vehicle Dataset (NVD): Vehicle Detection from UAV in Snowy Weather Conditions.</span></li>
+    </ul>
+
+    <div class="cred-group-head">Foundational Work — Image Quality &amp; Recommendation Systems</div>
+    <ul class="pub-list">
+      <li><span class="venue">IEEE TCSS '20</span><span>Kumar, S., <strong>De, K.</strong>, &amp; Roy, P. P. Movie Recommendation System Using Sentiment Analysis from Microblogging Data. IEEE Transactions on Computational Social Systems.</span></li>
+      <li><span class="venue">ICDAR '19</span><span>Keserwani, P., <strong>De, K.</strong>, Roy, P. P., &amp; Pal, U. Zero Shot Learning Based Script Identification in the Wild. IEEE.</span></li>
+      <li><span class="venue">ACCV '18</span><span>Halder, S. S., <strong>De, K.</strong>, &amp; Roy, P. P. Perceptual Conditional Generative Adversarial Networks for End-to-End Image Colourization. Springer.</span></li>
+      <li><span class="venue">Cog. Comput. '18</span><span><strong>De, K.</strong> &amp; Masilamani, V. A No-Reference Image Quality Measure for Blurred and Compressed Images Using Sparsity Features.</span></li>
+      <li><span class="venue">ESWA '20</span><span>Sadhya, D., <strong>De, K.</strong>, Raman, B., &amp; Roy, P. P. Efficient Extraction of Consistent Bit Locations from Binarized Iris Features. Expert Systems with Applications.</span></li>
+    </ul>
+
+    <div class="cred-group-head">Datasets — Public Releases</div>
+    <ul class="pub-list">
+      <li><span class="venue">Nature SD</span><span><a href="https://openneuro.org/datasets/ds004196/versions/2.0.2" target="_blank" rel="noopener" style="color: var(--text); border-bottom: 1px solid var(--line);">Bimodal EEG + fMRI inner-speech dataset</a> (also OpenNeuro) — first synchronised public release.</span></li>
+      <li><span class="venue">Nature SD</span><span>SignEEG v1.0 — multimodal EEG + handwritten signature for biometrics.</span></li>
+      <li><span class="venue">CVPR WS</span><span><a href="https://nvd.ltu-ai.dev/" target="_blank" rel="noopener" style="color: var(--text); border-bottom: 1px solid var(--line);">Nordic Vehicle Dataset</a> — UAV vehicle detection in snowy conditions.</span></li>
+      <li><span class="venue">ICCV WS</span><span>Colour-distortion benchmark — first dataset for studying colour effects on DNN robustness.</span></li>
     </ul>
   </div>
 </section>
@@ -1031,11 +1076,6 @@
       <li><a href="https://scholar.google.com/citations?user=e0rpZKsAAAAJ" target="_blank" rel="noopener">
         <span class="label">Scholar</span>
         <span class="value">scholar.google.com/Kanjar De</span>
-        <span class="arrow">↗</span>
-      </a></li>
-      <li><a href="https://github.com/kanlions" target="_blank" rel="noopener">
-        <span class="label">GitHub</span>
-        <span class="value">github.com/kanlions</span>
         <span class="arrow">↗</span>
       </a></li>
     </ul>
