@@ -464,6 +464,43 @@
     .essay .num, .essay .status { display: inline-block; margin-right: 8px; }
   }
 
+  /* ─── Invited talks ─── */
+  .talks-list { list-style: none; margin-top: 36px; }
+  .talks-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 28px;
+    align-items: baseline;
+  }
+  .talks-list li:last-child { border-bottom: none; }
+  .talks-list .date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+  .talks-list .topic {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .talks-list .venue {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 720px) {
+    .talks-list li { grid-template-columns: 1fr; gap: 6px; }
+  }
+
   /* ─── Speaking ─── */
   .speak-grid {
     display: grid;
@@ -729,7 +766,7 @@
 <section id="work">
   <div class="wrap">
     <div class="section-eyebrow"><span class="num">02</span> Selected Work</div>
-    <h2>Five projects across <em>healthcare, autonomous systems, and applied research.</em></h2>
+    <h2>Selected projects across <em>healthcare, autonomous systems, and applied research.</em></h2>
     <p class="mute" style="max-width:600px; margin-top:20px;">Each reframed to surface the governance and risk dimension — work that has been safety-relevant for a decade, before it had a regulatory name.</p>
 
     <div style="margin-top: 50px;">
@@ -760,7 +797,7 @@
         <div class="case-body">
           <h3>Robustness of vision models to colour distortions</h3>
           <p class="field"><strong>Context</strong>Image quality degrades silently in production — bad sensors, lossy pipelines, lighting shifts. Adversarial robustness was well-studied; everyday colour distortions were not.</p>
-          <p class="field"><strong>Work</strong>Built the first dataset designed specifically to study colour-channel distortions on trained deep models. Measured failure modes across architectures.</p>
+          <p class="field"><strong>Work</strong>Built one of the earliest datasets designed specifically to study colour-channel distortions on trained deep models. Measured failure modes across architectures.</p>
           <p class="field"><strong>Governance</strong>Exactly the distribution-shift evidence the EU AI Act requires under robustness testing for high-risk vision systems. Six years before the regulation existed, the experimental playbook was already there.</p>
           <p class="field"><strong>Outcome</strong>Two peer-reviewed publications. Best Paper award (Imaging and Multidimensional Signal Processing). Cited in subsequent robustness work.</p>
         </div>
@@ -793,7 +830,7 @@
           <h3>Nordic Vehicle Dataset — vehicle detection in snow</h3>
           <p class="field"><strong>Context</strong>Autonomous-driving vision benchmarks under-represent winter conditions. Models trained on KITTI or Cityscapes degrade sharply in snow, low light, and occlusion — exactly Nordic operating conditions.</p>
           <p class="field"><strong>Work</strong>Co-built the Nordic Vehicle Dataset and the accompanying benchmark. Released at a CVPR Workshop.</p>
-          <p class="field"><strong>Governance</strong>Operational design domain (ODD) is now a regulatory concept for autonomous systems. This work quantifies what falls outside the ODD of common detectors — exactly the evidence a safety case needs.</p>
+          <p class="field"><strong>Governance</strong>Adverse-weather robustness is exactly what regulators ask for under the EU AI Act's reliability requirements for high-risk vision systems. This work quantifies how off-the-shelf detectors degrade outside their training distribution — the kind of evidence a robustness assessment needs.</p>
           <p class="field"><strong>Outcome</strong><a href="https://nvd.ltu-ai.dev/" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">Public dataset and benchmark</a>. Cited in subsequent adverse-weather perception work.</p>
         </div>
       </article>
@@ -822,7 +859,7 @@
 <section id="credentials">
   <div class="wrap">
     <div class="section-eyebrow"><span class="num">03</span> Credentials</div>
-    <h2>Eleven certifications across <em>governance, risk, and security.</em></h2>
+    <h2>Certifications across <em>governance, risk, and security.</em></h2>
 
     <div class="cred-group-head">AI Governance &amp; Risk</div>
     <div class="creds-grid">
@@ -944,7 +981,7 @@
 <!-- ═══════════ SPEAKING / ADVISORY ═══════════ -->
 <section id="advisory">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">05</span> Speaking &amp; Advisory</div>
+    <div class="section-eyebrow"><span class="num">05</span> Speaking, Advisory &amp; Invited Talks</div>
     <h2>Available for <em>three kinds of engagement.</em></h2>
 
     <div class="speak-grid">
@@ -961,6 +998,31 @@
         <p>Conference talks and panels on responsible AI in regulated industries, ISO 42001 implementation, and the governance of high-risk systems.</p>
       </div>
     </div>
+
+    <div class="cred-group-head">Selected Invited Talks</div>
+    <ul class="talks-list">
+      <li>
+        <div class="date">12 Feb 2026</div>
+        <div>
+          <div class="topic">Application of Möbius Transformations in Robust Machine Learning</div>
+          <div class="venue">Vellore Institute of Technology, Bhopal · India</div>
+        </div>
+      </li>
+      <li>
+        <div class="date">14 Jan 2022</div>
+        <div>
+          <div class="topic">Robustness of Convolutional Neural Networks</div>
+          <div class="venue">BMS Institute of Technology and Management, Bangalore · India</div>
+        </div>
+      </li>
+      <li>
+        <div class="date">9 Mar 2018</div>
+        <div>
+          <div class="topic">Image Quality Assessment Techniques</div>
+          <div class="venue">Indian Institute of Technology Roorkee · India</div>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -982,6 +1044,8 @@
       <li><span class="venue">ECCV WS '24</span><span>Smirnov, M. et al. (incl. <strong>De, K.</strong>). AIM 2024 Challenge on Compressed Video Quality Assessment: Methods and Results. ECCV Workshops — placed 4th of 6 finalists with interpretable Full-Reference solution.</span></li>
       <li><span class="venue">ECCV '24</span><span>Chhipa, P. C., <strong>De, K.</strong>, Chippa, M. S., Saini, R., &amp; Liwicki, M. Open-Vocabulary Object Detectors: Robustness Challenges Under Distribution Shifts. Springer.</span></li>
       <li><span class="venue">ECCV '24</span><span>Chhipa, P. C., Chippa, M. S., <strong>De, K.</strong>, Saini, R., Liwicki, M., &amp; Shah, M. Möbius Transform for Mitigating Perspective Distortions in Representation Learning. Springer.</span></li>
+      <li><span class="venue">ACCV '24</span><span>Chippa, M. S., Chhipa, P. C., <strong>De, K.</strong>, Liwicki, M., &amp; Saini, R. LCM: Log Conformal Maps for Robust Representation Learning to Mitigate Perspective Distortion. Asian Conference on Computer Vision.</span></li>
+      <li><span class="venue">CVPR WS '23</span><span>Mokayed, H., Nayebiastaneh, A., <strong>De, K.</strong>, Sozos, S., Hagner, O., &amp; Backe, B. Nordic Vehicle Dataset (NVD): Vehicle Detection from UAV in Snowy Weather Conditions.</span></li>
       <li><span class="venue">ICCV WS '21</span><span><strong>De, K.</strong> &amp; Pedersen, M. Impact of Colour on Robustness of Deep Neural Networks. IEEE/CVF.</span></li>
       <li><span class="venue">EI '22</span><span><strong>De, K.</strong> &amp; Pedersen, M. Effect of Hue Shift Towards Robustness of Convolutional Neural Networks. Society for Imaging Sciences and Technology.</span></li>
       <li><span class="venue">JIST '22</span><span><strong>De, K.</strong> Exploring Effects of Colour and Image Quality in Semantic Segmentation by Deep Learning Methods. Journal of Imaging Science and Technology.</span></li>
@@ -994,7 +1058,6 @@
       <li><span class="venue">Sci. Data '23</span><span>Simistira Liwicki, F. et al. (incl. <strong>De, K.</strong>). Bimodal Electroencephalography-Functional Magnetic Resonance Imaging Dataset for Inner-Speech Recognition. Nature Scientific Data.</span></li>
       <li><span class="venue">Sci. Data '23</span><span>Mishra, A. R. et al. (incl. <strong>De, K.</strong>). SignEEG v1.0: Multimodal Dataset with EEG and Hand-Written Signature for Biometric Systems. Nature Scientific Data.</span></li>
       <li><span class="venue">EMBC '24</span><span>Wellington, S. et al. (incl. <strong>De, K.</strong>). Improving Inner Speech Decoding by Hybridisation of Bimodal EEG and fMRI Data. IEEE Engineering in Medicine and Biology Society.</span></li>
-      <li><span class="venue">CVPR WS '23</span><span>Mokayed, H., Nayebiastaneh, A., <strong>De, K.</strong>, Sozos, S., Hagner, O., &amp; Backe, B. Nordic Vehicle Dataset (NVD): Vehicle Detection from UAV in Snowy Weather Conditions.</span></li>
     </ul>
 
     <div class="cred-group-head">Foundational Work — Image Quality &amp; Recommendation Systems</div>
@@ -1008,10 +1071,10 @@
 
     <div class="cred-group-head">Datasets — Public Releases</div>
     <ul class="pub-list">
-      <li><span class="venue">Nature SD</span><span><a href="https://openneuro.org/datasets/ds004196/versions/2.0.2" target="_blank" rel="noopener" style="color: var(--text); border-bottom: 1px solid var(--line);">Bimodal EEG + fMRI inner-speech dataset</a> (also OpenNeuro) — first synchronised public release.</span></li>
+      <li><span class="venue">Nature SD</span><span><a href="https://openneuro.org/datasets/ds004196/versions/2.0.2" target="_blank" rel="noopener" style="color: var(--text); border-bottom: 1px solid var(--line);">Bimodal EEG + fMRI inner-speech dataset</a> (also OpenNeuro) — among the earliest synchronised public releases.</span></li>
       <li><span class="venue">Nature SD</span><span>SignEEG v1.0 — multimodal EEG + handwritten signature for biometrics.</span></li>
       <li><span class="venue">CVPR WS</span><span><a href="https://nvd.ltu-ai.dev/" target="_blank" rel="noopener" style="color: var(--text); border-bottom: 1px solid var(--line);">Nordic Vehicle Dataset</a> — UAV vehicle detection in snowy conditions.</span></li>
-      <li><span class="venue">ICCV WS</span><span>Colour-distortion benchmark — first dataset for studying colour effects on DNN robustness.</span></li>
+      <li><span class="venue">ICCV WS</span><span>Colour-distortion benchmark — one of the earliest datasets for studying colour effects on DNN robustness.</span></li>
     </ul>
   </div>
 </section>
