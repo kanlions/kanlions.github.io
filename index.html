@@ -513,6 +513,104 @@
     .talks-list li { grid-template-columns: 1fr; gap: 6px; }
   }
 
+  /* ─── Field Notes ─── */
+  .fn-intro {
+    color: var(--text-mute);
+    max-width: 640px;
+    margin-bottom: 40px;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  .fn-list { list-style: none; margin-top: 24px; }
+  .fn-entry {
+    padding: 24px 0;
+    border-top: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 28px;
+    align-items: baseline;
+  }
+  .fn-entry:first-child { border-top: none; padding-top: 0; }
+  .fn-entry .tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+  .fn-entry .tag .as-of {
+    display: block;
+    color: var(--accent);
+    margin-top: 4px;
+    letter-spacing: 0.08em;
+    text-transform: none;
+    font-size: 10px;
+  }
+  .fn-entry h4 {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .fn-entry h4 a {
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .fn-entry h4 a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .fn-entry .what {
+    color: var(--text-mute);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .fn-entry .why {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .fn-entry .why::before {
+    content: "Why it matters — ";
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-right: 4px;
+  }
+  @media (max-width: 720px) {
+    .fn-entry { grid-template-columns: 1fr; gap: 8px; }
+    .fn-entry .tag { font-size: 11px; }
+  }
+  .fn-subsection-head {
+    margin-top: 64px;
+    margin-bottom: 8px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .fn-subsection-head:first-of-type { margin-top: 40px; }
+  .fn-subsection-head h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+  }
+  .fn-subsection-head h3 em { font-style: italic; color: var(--accent); }
+  .fn-subsection-head .sub-blurb {
+    color: var(--text-mute);
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 580px;
+    margin: 0;
+  }
+
   /* ─── Speaking ─── */
   .speak-grid {
     display: grid;
@@ -1040,10 +1138,131 @@
   </div>
 </section>
 
+<!-- ═══════════ FIELD NOTES ═══════════ -->
+<section id="field-notes">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">06</span> Field Notes</div>
+    <h2>What I read, track, and refer back to — <em>beyond the headline frameworks.</em></h2>
+    <p class="fn-intro">A working library of the things that don't fit neatly into a CV. Frameworks I draw from when ISO 42001 alone doesn't reach far enough. Regulatory moves outside the EU AI Act that will shape the next five years. Curated, not exhaustive.</p>
+
+    <!-- Sub-section 1: Frameworks beyond the obvious -->
+    <div class="fn-subsection-head">
+      <h3>Frameworks <em>beyond the obvious.</em></h3>
+      <p class="sub-blurb">ISO 42001 and NIST AI RMF cover the management system. These extend the surface — into ethics, IT governance, application security, and adversary modelling.</p>
+    </div>
+    <ul class="fn-list">
+      <li class="fn-entry">
+        <div class="tag">STANDARD<br>ISO/IEC</div>
+        <div>
+          <h4><a href="https://www.iso.org/standard/77304.html" target="_blank" rel="noopener">ISO/IEC 23894 — AI Risk Management Guidance</a></h4>
+          <p class="what">A companion to ISO 31000, specialised for AI. Not a certification standard — guidance for integrating AI-specific risk into existing enterprise risk processes.</p>
+          <p class="why">It's the bridge between ISO 31000 (general risk) and ISO 42001 (AI management system). Most teams skip it; treating it as the connective tissue is what makes the unified control system actually unified.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">FRAMEWORK<br>ISACA</div>
+        <div>
+          <h4><a href="https://www.isaca.org/resources/cobit" target="_blank" rel="noopener">COBIT — Control Objectives for IT</a></h4>
+          <p class="what">An IT governance and management framework from ISACA. Older than the AI conversation, but its EDM (Evaluate, Direct, Monitor) loop is exactly the shape AI governance needs.</p>
+          <p class="why">When organisations ask "how does AI governance fit into our existing IT governance," the honest answer is "through COBIT." It's the framework non-AI executives already understand.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">CHECKLIST<br>OWASP</div>
+        <div>
+          <h4><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener">OWASP Top 10 for LLM Applications</a></h4>
+          <p class="what">A community-maintained list of the most critical security risks in LLM-integrated applications. Prompt injection, data leakage, model denial of service, supply chain vulnerabilities.</p>
+          <p class="why">The first practical security checklist for production LLM systems. Where ISO 42001 says "you must manage AI risks," OWASP says "specifically, here's what to test for."</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">CHECKLIST<br>OWASP</div>
+        <div>
+          <h4><a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/" target="_blank" rel="noopener">OWASP Top 10 for Agentic Applications</a></h4>
+          <p class="what">Released December 2025 by the OWASP GenAI Security Project. Covers agent-specific risks — goal hijack, tool misuse, identity and privilege abuse, supply chain via plugins and MCP servers, memory poisoning, multi-agent communication tampering.</p>
+          <p class="why">Where the LLM Top 10 covers prompt-level risk, the Agentic Top 10 covers what happens when those models can act. Microsoft's agentic failure modes reference it; NVIDIA's safety framework cites it. The vocabulary for talking about agentic risk is being set right now.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">CHECKLIST<br>OWASP</div>
+        <div>
+          <h4><a href="https://owasp.org/www-project-machine-learning-security-top-10/" target="_blank" rel="noopener">OWASP Machine Learning Security Top 10</a></h4>
+          <p class="what">A separate project covering classical ML security risks — input manipulation, data poisoning, model inversion, membership inference, model theft, model poisoning. Distinct from the LLM list, focused on the broader ML pipeline.</p>
+          <p class="why">Pre-dates the generative AI conversation and covers the security risks that don't go away just because the model is now a transformer. Adversarial robustness, training-data integrity, and model extraction are still problems — just under-discussed compared to prompt injection.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">THREAT MODEL<br>MITRE</div>
+        <div>
+          <h4><a href="https://atlas.mitre.org/" target="_blank" rel="noopener">MITRE ATLAS — Adversarial Threat Landscape for AI Systems</a></h4>
+          <p class="what">A knowledge base of adversarial tactics, techniques, and case studies for AI systems — structured like MITRE ATT&amp;CK but for ML attacks.</p>
+          <p class="why">The most rigorous public catalogue of real-world AI attacks. When a regulator asks "what threats does this system face," ATLAS is the source you cite — not your own internal threat model.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">TAXONOMY<br>MIT</div>
+        <div>
+          <h4><a href="https://airisk.mit.edu/" target="_blank" rel="noopener">MIT AI Risk Repository</a></h4>
+          <p class="what">A living database of 1700+ AI risks aggregated from 74 frameworks, organised by a causal taxonomy (how, when, why) and a domain taxonomy (7 domains, 24 subdomains). Updated regularly by the MIT AI Risk Initiative.</p>
+          <p class="why">The closest thing to a periodic table for AI risk. When two frameworks describe what looks like the same risk in different language, this is where you check whether they actually mean the same thing.</p>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Sub-section 2: Global AI regulation -->
+    <div class="fn-subsection-head">
+      <h3>Global AI <em>regulation.</em></h3>
+      <p class="sub-blurb">The EU AI Act dominates the conversation. It shouldn't. A jurisdictional snapshot of where else high-stakes AI rules are being written, debated, or enforced.</p>
+    </div>
+    <ul class="fn-list">
+      <li class="fn-entry">
+        <div class="tag">EUROPEAN UNION<span class="as-of">As of May '26</span></div>
+        <div>
+          <h4><a href="https://artificialintelligenceact.eu/" target="_blank" rel="noopener">EU AI Act</a></h4>
+          <p class="what">The world's first comprehensive AI law. Risk-based classification (unacceptable, high, limited, minimal), with the strictest obligations on high-risk systems in healthcare, employment, critical infrastructure, and law enforcement. Phased enforcement from 2025 through 2027.</p>
+          <p class="why">The reference point every other jurisdiction is measured against, including by people who disagree with it. Understanding what it actually requires — versus what people think it requires — is the precondition for any serious AI governance work in Europe.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">SINGAPORE<span class="as-of">As of May '26</span></div>
+        <div>
+          <h4><a href="https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches" target="_blank" rel="noopener">Model AI Governance Framework + Agent Governance</a></h4>
+          <p class="what">Singapore's IMDA-led framework, voluntary, with a recent extension specifically addressing AI agents — agentic systems acting on behalf of users in regulated contexts.</p>
+          <p class="why">One of the first jurisdictions to publish dedicated agent-system guidance. Voluntary today; likely a template other jurisdictions look to for agentic AI.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">SOUTH KOREA<span class="as-of">As of May '26</span></div>
+        <div>
+          <h4><a href="https://aibasicact.kr/explorer/" target="_blank" rel="noopener">AI Basic Act</a></h4>
+          <p class="what">Korea's foundational AI law, effective January 2026. Risk-based framework with provisions for "high-impact AI" and generative AI. Notably extraterritorial — applies to foreign providers serving the Korean market. The linked Explorer (Future of Life Institute + South Korea AISI) is the best English navigation of the Act.</p>
+          <p class="why">The world's second comprehensive AI law after the EU AI Act. Read the two side by side and the underlying regulatory instinct becomes legible — same problem, different legal traditions producing similar architectures.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">CHINA<span class="as-of">As of May '26</span></div>
+        <div>
+          <h4><a href="https://www.chinalawtranslate.com/en/generative-ai-interim/" target="_blank" rel="noopener">Interim Measures for the Management of Generative AI Services</a></h4>
+          <p class="what">The CAC's binding regulation on public-facing generative AI services in mainland China, in force since August 2023. Mandatory algorithm filing, security assessments for services with "public opinion attributes," labelling requirements for synthetic content. (Linked translation by China Law Translate.)</p>
+          <p class="why">The only major jurisdiction enforcing AI rules with material consequences today — over 700 generative AI services have completed the filing process. The operational record, whatever one thinks of the policy choices, is data the rest of the world is studying.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">UNITED STATES<span class="as-of">As of May '26</span></div>
+        <div>
+          <h4><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI RMF + state-level patchwork</a></h4>
+          <p class="what">No comprehensive federal AI law; NIST AI RMF as voluntary federal guidance; rapidly proliferating state laws (Colorado AI Act, NYC bias audits, California disclosure rules).</p>
+          <p class="why">The compliance picture in the US looks nothing like the EU's. Multinationals operating in both face two governance philosophies running in parallel — the central design problem of the decade.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- ═══════════ PUBLICATIONS ═══════════ -->
 <section id="publications">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">06</span> Publications</div>
+    <div class="section-eyebrow"><span class="num">07</span> Publications</div>
     <h2>Selected work across <em>governance, robustness, healthcare AI, and image quality.</em></h2>
     <p class="mute" style="max-width:600px; margin-top:20px;">A curated subset. Full list — 40+ peer-reviewed papers — on <a href="https://scholar.google.com/citations?user=e0rpZKsAAAAJ" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">Google Scholar</a>.</p>
 
@@ -1096,7 +1315,7 @@
 <!-- ═══════════ ABOUT ═══════════ -->
 <section id="about">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">07</span> About</div>
+    <div class="section-eyebrow"><span class="num">08</span> About</div>
     <h2>The thread is <em>signal processing.</em></h2>
 
     <div class="about-grid" style="margin-top: 40px;">
@@ -1136,7 +1355,7 @@
 <!-- ═══════════ CONTACT / FOOTER ═══════════ -->
 <footer id="contact">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">08</span> Contact</div>
+    <div class="section-eyebrow"><span class="num">09</span> Contact</div>
     <h2>Best reached by <em>email or LinkedIn.</em></h2>
 
     <ul class="contact-list">
