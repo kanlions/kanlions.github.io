@@ -300,6 +300,24 @@
     color: var(--text-dim);
     letter-spacing: 0.02em;
   }
+  .diagram-footnote {
+    text-align: center;
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+  }
+  .diagram-footnote a {
+    color: var(--text-mute);
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .diagram-footnote a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
 
   /* ─── Cases ─── */
   .case {
@@ -868,6 +886,7 @@
         <text class="core-text" x="350" y="265" text-anchor="middle">controls</text>
       </svg>
       <p class="diagram-caption">Each framework asks the same questions in different language. Map them, and you get one control system instead of multiple audits.</p>
+      <p class="diagram-footnote">Diagram: working sketch. Compliance-grade mapping: <a href="https://airc.nist.gov/docs/NIST_AI_RMF_to_ISO_IEC_42001_Crosswalk.pdf" target="_blank" rel="noopener">NIST AI RMF ↔ ISO/IEC 42001 Crosswalk (PDF)</a>.</p>
     </div>
   </div>
 </section>
@@ -1048,20 +1067,11 @@
   <div class="wrap">
     <div class="section-eyebrow"><span class="num">04</span> Writing</div>
     <h2>Essays in <em>preparation.</em></h2>
-    <p class="mute" style="max-width:600px;">Four pieces in the pipeline. Drafts will appear here as they're ready.</p>
+    <p class="mute" style="max-width:600px;">Two pieces in the pipeline. Drafts will appear here as they're ready.</p>
 
     <div style="margin-top: 40px;">
       <article class="essay">
-        <div class="num">01 /04</div>
-        <div>
-          <h3>Why I treat ISO 42001 and NIST AI RMF as one control system</h3>
-          <p class="blurb">Most teams pick one and bolt the other on. That produces two binders, two audits, and a seam in the middle where high-risk AI fails. The 70% overlap, the 30% delta, and why the delta is where the real work is.</p>
-        </div>
-        <div class="status">Drafting</div>
-      </article>
-
-      <article class="essay">
-        <div class="num">02 /04</div>
+        <div class="num">01 /02</div>
         <div>
           <h3>Reading a model card like a regulator</h3>
           <p class="blurb">A good model card is a risk document in disguise. How to read training data sections for distribution-shift exposure, evaluation tables for under-tested populations, and limitations sections for the unsaid. With a worked example.</p>
@@ -1070,19 +1080,10 @@
       </article>
 
       <article class="essay">
-        <div class="num">03 /04</div>
+        <div class="num">02 /02</div>
         <div>
           <h3>OWASP Top 10 for LLMs in clinical settings</h3>
           <p class="blurb">Prompt injection in a triage chatbot is not the same risk as prompt injection in a marketing assistant. Each item mapped to a clinical scenario, with the controls that actually mitigate it.</p>
-        </div>
-        <div class="status">Planned</div>
-      </article>
-
-      <article class="essay">
-        <div class="num">04 /04</div>
-        <div>
-          <h3>The 30% you can't copy from ISO 27001</h3>
-          <p class="blurb">AI governance teams often start by cloning their ISMS. It gets them to 70% on ISO 42001 fast — and then they hit the AI-specific 30%. What those controls look like and why they're unfamiliar territory for security-trained teams.</p>
         </div>
         <div class="status">Planned</div>
       </article>
