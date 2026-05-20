@@ -1459,8 +1459,12 @@
     <!-- Sub-section 1: Beyond the headline frameworks -->
     <div class="fn-subsection-head">
       <h3>Beyond the <em>headline frameworks.</em></h3>
-      <p class="sub-blurb">ISO 42001 and NIST AI RMF cover the management system. These are the references I reach for when the headline frameworks aren't enough — standards, checklists, threat models, taxonomies, and the public record of what's actually gone wrong.</p>
+      <p class="sub-blurb">ISO 42001 and NIST AI RMF cover the management system. These are the references I reach for when the headline frameworks aren't enough — split here into the prescriptive (what to do, test for, defend against) and the empirical (what's been measured and documented in practice).</p>
     </div>
+
+    <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-top: 32px; margin-bottom: 8px; font-weight: 500;">Frameworks &amp; Standards</p>
+    <p style="font-size: 13px; color: var(--text-mute); margin-bottom: 8px; max-width: 580px; line-height: 1.5;">Prescriptive references — what to do, what to test for, what to defend against.</p>
+
     <ul class="fn-list">
       <li class="fn-entry">
         <div class="tag">STANDARD<br>ISO/IEC</div>
@@ -1510,6 +1514,12 @@
           <p class="why">The most rigorous public catalogue of real-world AI attacks. When a regulator asks "what threats does this system face," ATLAS is the source you cite — not your own internal threat model.</p>
         </div>
       </li>
+    </ul>
+
+    <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-top: 48px; margin-bottom: 8px; font-weight: 500;">Empirical Resources</p>
+    <p style="font-size: 13px; color: var(--text-mute); margin-bottom: 8px; max-width: 580px; line-height: 1.5;">Observational references — what the field has measured, mapped, and documented happening in practice.</p>
+
+    <ul class="fn-list">
       <li class="fn-entry">
         <div class="tag">TAXONOMY<br>MIT</div>
         <div>
@@ -1524,6 +1534,22 @@
           <h4><a href="https://incidentdatabase.ai/" target="_blank" rel="noopener">AI Incident Database</a></h4>
           <p class="what">A public, searchable record of real-world AI harms and failures, maintained by the Responsible AI Collaborative since 2020. Each incident is sourced from news reports, organised by entity, category, and taxonomy, and citable in research and policy work.</p>
           <p class="why">Everything else in this section describes what could or should happen. This one documents what actually has happened. When a regulator asks for evidence that a class of risk is real and recurring, the AIID is the public record that lets you point at incident IDs rather than gesture at headlines.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">PROVENANCE<br>MIT</div>
+        <div>
+          <h4><a href="https://www.dataprovenance.org/about" target="_blank" rel="noopener">Data Provenance Initiative</a></h4>
+          <p class="what">A multi-institution audit of 1,800+ AI training datasets, tracing source, licensing, attribution, and downstream use. Published in <em>Nature Machine Intelligence</em> (Longpre et al., 2024). The accompanying Data Provenance Explorer lets users generate structured provenance cards for individual datasets.</p>
+          <p class="why">The empirical evidence that training-data lineage is broken at scale — license omission rates above 70%, error rates above 50% on major dataset hosting sites. Anyone arguing about EU AI Act technical-documentation obligations should read this first; it's the dataset of the problem.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">VALIDATION<br>DKFZ</div>
+        <div>
+          <h4><a href="https://metrics-reloaded.dkfz.de/" target="_blank" rel="noopener">Metrics Reloaded</a></h4>
+          <p class="what">A framework and interactive tool for problem-aware metric selection in biomedical image analysis. Published as two companion papers in <em>Nature Methods</em> (Maier-Hein, Reinke et al., 2024). Built around the concept of a "problem fingerprint" that maps a given task to its appropriate validation metrics.</p>
+          <p class="why">A worked answer to the question every clinical AI deployment quietly avoids — "did we measure performance the right way." Metric selection is itself a governance decision; this is the framework that operationalises it.</p>
         </div>
       </li>
     </ul>
