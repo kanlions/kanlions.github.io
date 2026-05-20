@@ -1189,8 +1189,8 @@
 <section id="writing">
   <div class="wrap">
     <div class="section-eyebrow"><span class="num">04</span> In Writing</div>
-    <h2>Essays and case studies <em>in preparation.</em></h2>
-    <p class="mute" style="max-width:600px;">One published comparison so far. Two essays and three worked risk-methodology case studies queued. Drafts will appear here as they're ready.</p>
+    <h2>Published work and pieces <em>in preparation.</em></h2>
+    <p class="mute" style="max-width:600px;">One published comparison, one published reference with commentary, two essays in the pipeline. Drafts will appear here as they're ready.</p>
 
     <div class="cred-group-head">Published</div>
     <article class="essay" style="border-top: none; padding-top: 8px; align-items: start;">
@@ -1377,34 +1377,25 @@
       </article>
     </div>
 
-    <div class="cred-group-head">Case studies — risk methodologies applied to AI</div>
-    <p class="mute" style="max-width:640px; font-size: 14px; margin-top: 8px; margin-bottom: 8px;">Three worked examples drawn from published practice — not theoretical surveys. Each takes one method, one real system, and walks through what the analysis surfaced.</p>
+    <div class="cred-group-head">Published references — risk methodologies applied to AI</div>
+    <p class="mute" style="max-width:640px; font-size: 14px; margin-top: 8px; margin-bottom: 8px;">Worked case studies from the published literature that I return to. Not my work — pointers, with my framing of why each one matters.</p>
     <div>
-      <article class="essay">
-        <div class="num">CS /01</div>
+      <article class="essay" style="align-items: start;">
+        <div class="num">REF /01</div>
         <div>
-          <h3>STPA applied to clinical AI — neonatal sepsis early-warning</h3>
-          <p class="blurb">System-Theoretic Process Analysis on a real ML system predicting late-onset sepsis in preterm infants. Following the PHASE framework (Arxiv 2024), examining how control structures and feedback loops surface hazards that conventional FMEA misses.</p>
-        </div>
-        <div class="status">Planned</div>
-      </article>
+          <div class="comparison-published">
+            <div class="heading">
+              <h4>STPA applied to clinical AI</h4>
+              <span class="pub-date">arXiv · Oct 2024</span>
+            </div>
+            <p class="blurb" style="margin-bottom: 18px;"><strong style="color: var(--text);">From Silos to Systems: Process-Oriented Hazard Analysis for AI Systems.</strong> Shalaleh Rismani, Roel Dobbe, AJung Moon. <a href="https://arxiv.org/abs/2410.22526" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">arXiv 2410.22526</a>.</p>
 
-      <article class="essay">
-        <div class="num">CS /02</div>
-        <div>
-          <h3>HAZOP for learning-enabled autonomous systems</h3>
-          <p class="blurb">Walking through the WATonoBus (Waterloo, 2025) and HILLS Autonomous Underwater Vehicle case studies — how HAZOP's guide-word approach adapts to ML components, and where it meaningfully complements STPA rather than duplicating it.</p>
-        </div>
-        <div class="status">Planned</div>
-      </article>
+            <p style="font-size: 14px; line-height: 1.65; color: var(--text-mute); margin-bottom: 14px;"><strong style="color: var(--accent); font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 500;">What they did. </strong>Adapted Leveson's System-Theoretic Process Analysis (STPA) for AI systems and walked it through three case studies — a linear-regression early-warning tool for late-onset sepsis in preterm infants, a reinforcement-learning insulin delivery system, and a transformer-based text-to-image model. They formalised the adaptation as PHASE (Process-oriented Hazard Analysis for AI Systems), with modifications for model opacity, capability uncertainty, and output complexity.</p>
 
-      <article class="essay">
-        <div class="num">CS /03</div>
-        <div>
-          <h3>The WEF–INTERPOL framework for facial recognition in law enforcement</h3>
-          <p class="blurb">A structured walk-through of the 2022 governance framework's self-assessment questionnaire applied to a deployment scenario. Where the framework provides traction, where it leaves gaps, and how it interacts with the EU AI Act's biometric provisions.</p>
+            <p style="font-size: 14px; line-height: 1.65; color: var(--text-mute); margin-bottom: 0;"><strong style="color: var(--accent); font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 500;">Why this matters. </strong>The clearest published demonstration that systems-theoretic analysis transfers cleanly to AI — and that the seams between model, deployment context, and human operator are where the failures actually live. The neonatal sepsis case in particular is a useful template for anyone designing a risk file for clinical decision support under EU AI Act high-risk obligations.</p>
+          </div>
         </div>
-        <div class="status">Planned</div>
+        <div class="status" style="color: var(--accent); border-color: var(--accent);">Reference</div>
       </article>
     </div>
   </div>
