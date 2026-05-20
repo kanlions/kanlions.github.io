@@ -629,6 +629,129 @@
     margin: 0;
   }
 
+  /* ─── Comparison Table ─── */
+  .comparison-published {
+    margin-top: 24px;
+    padding: 32px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+  }
+  .comparison-published .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .comparison-published h4 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .comparison-published .pub-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .comparison-published .blurb {
+    color: var(--text-mute);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 640px;
+  }
+  .table-scroll { overflow-x: auto; }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.55;
+    min-width: 700px;
+  }
+  .comparison-table thead th {
+    text-align: left;
+    padding: 12px 16px 12px 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--line);
+    font-weight: 500;
+  }
+  .comparison-table thead th:first-child { width: 28%; }
+  .comparison-table thead th:nth-child(2) { width: 36%; }
+  .comparison-table thead th:nth-child(3) { width: 36%; }
+  .comparison-table .block-head td {
+    padding: 22px 16px 8px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .comparison-table .block-head .block-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .comparison-table .block-head .block-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-left: 12px;
+    letter-spacing: 0.08em;
+  }
+  .comparison-table tbody tr.data-row td {
+    padding: 14px 16px 14px 0;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+  }
+  .comparison-table .row-label {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--text);
+    font-size: 14px;
+  }
+  .comparison-table .cell {
+    color: var(--text-mute);
+    font-size: 13.5px;
+  }
+  .comparison-table .ref {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+  .comparison-table .no-equiv {
+    color: var(--text-dim);
+    font-style: italic;
+  }
+  .comparison-footnote {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line-soft);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+    line-height: 1.7;
+  }
+  .comparison-footnote a {
+    color: var(--text-mute);
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .comparison-footnote a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
   /* ─── Speaking ─── */
   .speak-grid {
     display: grid;
@@ -1065,11 +1188,176 @@
 <!-- ═══════════ WRITING ═══════════ -->
 <section id="writing">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">04</span> Writing</div>
-    <h2>Essays in <em>preparation.</em></h2>
-    <p class="mute" style="max-width:600px;">Two pieces in the pipeline. Drafts will appear here as they're ready.</p>
+    <div class="section-eyebrow"><span class="num">04</span> In Writing</div>
+    <h2>Essays and case studies <em>in preparation.</em></h2>
+    <p class="mute" style="max-width:600px;">One published comparison so far. Two essays and three worked risk-methodology case studies queued. Drafts will appear here as they're ready.</p>
 
-    <div style="margin-top: 40px;">
+    <div class="cred-group-head">Published</div>
+    <article class="essay" style="border-top: none; padding-top: 8px; align-items: start;">
+      <div class="num">PUB /01</div>
+      <div>
+        <div class="comparison-published">
+          <div class="heading">
+            <h4>DPDPA vs GDPR for AI systems</h4>
+            <span class="pub-date">As of May 2026</span>
+          </div>
+          <p class="blurb">A side-by-side reference for AI practitioners working across India and the EU. Anchored in the DPDP Act 2023, DPDP Rules 2025 (notified 13 November 2025), and the GDPR. Where one regime has no direct counterpart, the cell says so.</p>
+
+          <div class="table-scroll">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>GDPR (EU)</th>
+                  <th>DPDPA (India)</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <!-- ─── SIMILARITIES ─── -->
+                <tr class="block-head">
+                  <td colspan="3">
+                    <span class="block-label">Similarities</span>
+                    <span class="block-count">5 rows</span>
+                  </td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Extraterritorial reach</td>
+                  <td class="cell">Applies to non-EU controllers offering goods/services to EU data subjects.<span class="ref">Art. 3(2) GDPR</span></td>
+                  <td class="cell">Applies to processing outside India in connection with offering goods/services to data principals in India.<span class="ref">Section 3(b), DPDP Act</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Core data subject / principal rights</td>
+                  <td class="cell">Access, rectification, erasure, restriction, portability, objection.<span class="ref">Arts. 15–21 GDPR</span></td>
+                  <td class="cell">Access, correction, completion, updating, erasure, grievance redressal, nomination.<span class="ref">Sections 11–14, DPDP Act</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Consent: free, specific, informed, unambiguous</td>
+                  <td class="cell">Consent must be a freely given, specific, informed, unambiguous indication.<span class="ref">Art. 4(11), Art. 7 GDPR</span></td>
+                  <td class="cell">Consent must be free, specific, informed, unconditional and unambiguous with clear affirmative action.<span class="ref">Section 6(1), DPDP Act</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Breach notification to regulator</td>
+                  <td class="cell">Notify supervisory authority without undue delay, within 72 hours where feasible.<span class="ref">Art. 33 GDPR</span></td>
+                  <td class="cell">Notify the Data Protection Board and affected principals; specifics in Rule 7. Practice converging on 72-hour windows.<span class="ref">Section 8(6); Rule 7, DPDP Rules 2025</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Independent supervisory authority</td>
+                  <td class="cell">National Data Protection Authorities; cooperation via European Data Protection Board.<span class="ref">Arts. 51–59, 68 GDPR</span></td>
+                  <td class="cell">Data Protection Board of India established; appeals to the TDSAT.<span class="ref">Chapter V, DPDP Act</span></td>
+                </tr>
+
+                <!-- ─── DIFFERENCES ─── -->
+                <tr class="block-head">
+                  <td colspan="3">
+                    <span class="block-label">Differences</span>
+                    <span class="block-count">6 rows</span>
+                  </td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Material scope</td>
+                  <td class="cell">Digital and structured non-digital personal data.<span class="ref">Art. 2 GDPR</span></td>
+                  <td class="cell">Digital personal data only — including non-digital data subsequently digitised.<span class="ref">Section 3, DPDP Act</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Lawful bases for processing</td>
+                  <td class="cell">Six lawful bases including consent, contract, legal obligation, vital interests, public interest, legitimate interests.<span class="ref">Art. 6 GDPR</span></td>
+                  <td class="cell">Two pathways: consent, or one of the enumerated "legitimate uses." No "legitimate interests" balancing test as in GDPR.<span class="ref">Sections 6–7, DPDP Act</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Sensitive / special category data</td>
+                  <td class="cell">Special categories — health, biometric, genetic, racial, political, religious, sexual orientation — get heightened protection.<span class="ref">Art. 9 GDPR</span></td>
+                  <td class="cell">No distinct "sensitive data" category. All personal data treated uniformly under the Act.<span class="ref">DPDP Act (entire)</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Age of digital majority</td>
+                  <td class="cell">16 by default; member states may lower to 13.<span class="ref">Art. 8 GDPR</span></td>
+                  <td class="cell">18. Verifiable parental/guardian consent required below this age, irrespective of platform.<span class="ref">Section 9; Rule 10, DPDP Rules 2025</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">DPO requirement</td>
+                  <td class="cell">Mandatory for public bodies, large-scale systematic monitoring, or large-scale sensitive data processing.<span class="ref">Art. 37 GDPR</span></td>
+                  <td class="cell">Required only for Significant Data Fiduciaries — designated by government based on volume, sensitivity, risk.<span class="ref">Section 10(2)(a), DPDP Act</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Maximum administrative fines</td>
+                  <td class="cell">Up to €20m or 4% of global annual turnover, whichever is higher.<span class="ref">Art. 83(5) GDPR</span></td>
+                  <td class="cell">Up to ₹250 crore (~€28m) per failure of security safeguards. Schedule of penalties; no turnover-based formula.<span class="ref">Schedule, DPDP Act</span></td>
+                </tr>
+
+                <!-- ─── AI-SPECIFIC ─── -->
+                <tr class="block-head">
+                  <td colspan="3">
+                    <span class="block-label">AI-specific</span>
+                    <span class="block-count">6 rows</span>
+                  </td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Solely-automated decisions producing significant effects</td>
+                  <td class="cell">Right not to be subject to solely automated decisions; explicit consent, contract necessity, or law as exceptions; right to human intervention and contest.<span class="ref">Art. 22 GDPR</span></td>
+                  <td class="cell"><span class="no-equiv">No direct equivalent.</span> Algorithmic governance addressed only for Significant Data Fiduciaries via DPIA obligations.<span class="ref">Section 10(2)(c); Rule 13, DPDP Rules 2025</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Right to explanation / meaningful information on logic</td>
+                  <td class="cell">Right to meaningful information about the logic of automated decisions; reinforced by CJEU in SCHUFA (2023).<span class="ref">Arts. 13(2)(f), 14(2)(g), 15(1)(h) GDPR</span></td>
+                  <td class="cell"><span class="no-equiv">No direct equivalent</span> in the Act or Rules.<span class="ref">DPDP Act; DPDP Rules 2025</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Algorithmic risk assessment for AI/ML systems</td>
+                  <td class="cell">DPIA mandatory where processing is "likely to result in a high risk" — including systematic evaluation by automated means.<span class="ref">Art. 35 GDPR</span></td>
+                  <td class="cell">Significant Data Fiduciaries must conduct annual DPIA and independent audit; algorithmic governance explicitly enumerated.<span class="ref">Rule 13, DPDP Rules 2025</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Children's data in AI training and behavioural targeting</td>
+                  <td class="cell">Heightened protection; specific protection from profiling-based marketing in recitals (recital 71).<span class="ref">Art. 8 GDPR; Recital 71</span></td>
+                  <td class="cell">Explicit prohibition on tracking, behavioural monitoring, and targeted advertising directed at children.<span class="ref">Section 9(3); Rule 10, DPDP Rules 2025</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Research / statistical exemption for model training</td>
+                  <td class="cell">Scientific, historical, statistical research subject to safeguards (pseudonymisation, purpose limitation).<span class="ref">Art. 89 GDPR</span></td>
+                  <td class="cell">Research, archiving, statistical processing exempt — must not be used to make decisions about specific individuals.<span class="ref">Section 17(2)(b); Rule 16; Second Schedule, DPDP Rules 2025</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Cross-border training-data flows</td>
+                  <td class="cell">Restricted to adequacy-decision countries, or with SCCs, BCRs, or derogations.<span class="ref">Chapter V (Arts. 44–50) GDPR</span></td>
+                  <td class="cell">Default permissive ("blacklist" model) — transfer permitted unless Government restricts specific countries or categories.<span class="ref">Section 16; Rules 14–15, DPDP Rules 2025</span></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <p class="comparison-footnote">
+            Primary sources:
+            <a href="https://www.meity.gov.in/static/uploads/2024/06/2bf1f0e9f04e6fb4f8fef35e82c42aa5.pdf" target="_blank" rel="noopener">DPDP Act 2023 (MeitY)</a> ·
+            <a href="https://www.meity.gov.in/content/digital-personal-data-protection-act-2023" target="_blank" rel="noopener">DPDP Rules 2025 (MeitY)</a> ·
+            <a href="https://gdpr-info.eu/" target="_blank" rel="noopener">GDPR full text</a>.
+            This table is a regulatory reference, not legal advice. Confirm interpretations with qualified counsel for compliance decisions.
+          </p>
+        </div>
+      </div>
+      <div class="status" style="color: var(--accent); border-color: var(--accent);">Published</div>
+    </article>
+
+    <div class="cred-group-head">Essays</div>
+    <div style="margin-top: 8px;">
       <article class="essay">
         <div class="num">01 /02</div>
         <div>
@@ -1084,6 +1372,37 @@
         <div>
           <h3>OWASP Top 10 for LLMs in clinical settings</h3>
           <p class="blurb">Prompt injection in a triage chatbot is not the same risk as prompt injection in a marketing assistant. Each item mapped to a clinical scenario, with the controls that actually mitigate it.</p>
+        </div>
+        <div class="status">Planned</div>
+      </article>
+    </div>
+
+    <div class="cred-group-head">Case studies — risk methodologies applied to AI</div>
+    <p class="mute" style="max-width:640px; font-size: 14px; margin-top: 8px; margin-bottom: 8px;">Three worked examples drawn from published practice — not theoretical surveys. Each takes one method, one real system, and walks through what the analysis surfaced.</p>
+    <div>
+      <article class="essay">
+        <div class="num">CS /01</div>
+        <div>
+          <h3>STPA applied to clinical AI — neonatal sepsis early-warning</h3>
+          <p class="blurb">System-Theoretic Process Analysis on a real ML system predicting late-onset sepsis in preterm infants. Following the PHASE framework (Arxiv 2024), examining how control structures and feedback loops surface hazards that conventional FMEA misses.</p>
+        </div>
+        <div class="status">Planned</div>
+      </article>
+
+      <article class="essay">
+        <div class="num">CS /02</div>
+        <div>
+          <h3>HAZOP for learning-enabled autonomous systems</h3>
+          <p class="blurb">Walking through the WATonoBus (Waterloo, 2025) and HILLS Autonomous Underwater Vehicle case studies — how HAZOP's guide-word approach adapts to ML components, and where it meaningfully complements STPA rather than duplicating it.</p>
+        </div>
+        <div class="status">Planned</div>
+      </article>
+
+      <article class="essay">
+        <div class="num">CS /03</div>
+        <div>
+          <h3>The WEF–INTERPOL framework for facial recognition in law enforcement</h3>
+          <p class="blurb">A structured walk-through of the 2022 governance framework's self-assessment questionnaire applied to a deployment scenario. Where the framework provides traction, where it leaves gaps, and how it interacts with the EU AI Act's biometric provisions.</p>
         </div>
         <div class="status">Planned</div>
       </article>
