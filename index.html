@@ -1202,7 +1202,7 @@
   <div class="wrap">
     <div class="section-eyebrow"><span class="num">04</span> Practice Notes</div>
     <h2>Working artifacts from the <em>practice.</em></h2>
-    <p class="mute" style="max-width:600px;">Comparisons, references with commentary, essays as they're written. Some shipped, some in motion.</p>
+    <p class="mute" style="max-width:600px;">Comparison tables I've produced. References with my framing of why each matters.</p>
 
     <article class="essay" style="border-top: none; padding-top: 8px; align-items: start;">
       <div class="num">ART /01</div>
@@ -1364,7 +1364,138 @@
           </p>
         </div>
       </div>
-      <div class="status" style="color: var(--accent); border-color: var(--accent);">Published</div>
+    </article>
+
+    <article class="essay" style="border-top: none; padding-top: 8px; align-items: start;">
+      <div class="num">ART /02</div>
+      <div>
+        <div class="comparison-published">
+          <div class="heading">
+            <h4>SR 11-7 vs SR 26-2 — model risk management modernized</h4>
+            <span class="pub-date">As of May 2026</span>
+          </div>
+          <p class="blurb">On 17 April 2026 the Federal Reserve, OCC, and FDIC jointly issued <strong style="color: var(--text);">SR 26-2</strong>, the first revision to US model risk management guidance in 15 years. It supersedes <strong style="color: var(--text);">SR 11-7</strong> (April 2011). The headline below isn't what's the same — it's what changed, and what the Fed deliberately left out.</p>
+
+          <div class="table-scroll">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>SR 11-7 (2011)</th>
+                  <th>SR 26-2 (2026)</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <!-- ─── WHAT CARRIES OVER ─── -->
+                <tr class="block-head">
+                  <td colspan="3">
+                    <span class="block-label">What carries over</span>
+                    <span class="block-count">4 rows</span>
+                  </td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Three-line-of-defence structure</td>
+                  <td class="cell">Model owners and developers (1st), independent validators (2nd), internal audit (3rd).</td>
+                  <td class="cell">Same intellectual architecture preserved. Independent review remains the core control.</td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Effective challenge</td>
+                  <td class="cell">Models reviewed by experts with independence, expertise, and organisational standing to question assumptions.</td>
+                  <td class="cell">Retained as a core principle — but the new guidance emphasises quality of challenge over rigid structural separation from developers.</td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Documentation and inventory expectations</td>
+                  <td class="cell">Documented model purpose, design, assumptions, limitations, and ongoing monitoring required.</td>
+                  <td class="cell">Same expectations carry; inventory expanded to support enterprise-level visibility into concentrations, dependencies, and aggregate risk.</td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Applicability threshold</td>
+                  <td class="cell">Most relevant to large banking organisations, with proportional application.</td>
+                  <td class="cell">Explicitly targeted at banking organisations with over $30B in total assets — proportionality formalised.<span class="ref">SR 26-2, Applicability</span></td>
+                </tr>
+
+                <!-- ─── WHAT CHANGED ─── -->
+                <tr class="block-head">
+                  <td colspan="3">
+                    <span class="block-label">What changed</span>
+                    <span class="block-count">5 rows</span>
+                  </td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Length and prescriptive tone</td>
+                  <td class="cell">~20 pages of prescriptive expectations. Treated by examiners as a de facto standard.</td>
+                  <td class="cell">Roughly half the length. Explicitly states the guidance does not set forth enforceable standards; non-compliance alone will not result in supervisory criticism.</td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Validation cadence</td>
+                  <td class="cell">Annual revalidation the de facto expectation across the industry.</td>
+                  <td class="cell">Annual revalidation no longer a default. Validation cadence is risk-based, tied to model materiality.</td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Model classification</td>
+                  <td class="cell">Binary "model vs non-model" determination, with rule-based tools often falling on the non-model side.</td>
+                  <td class="cell">Binary classification dropped. Materiality replaces the binary; institutions must assess model risk on a spectrum tied to purpose and exposure.</td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Inventory purpose</td>
+                  <td class="cell">A recordkeeping requirement, often satisfied as a documented list.</td>
+                  <td class="cell">Reframed as an enterprise risk artefact — must support visibility into concentrations, dependencies, and aggregate exposure.</td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Supervisory posture</td>
+                  <td class="cell">Examiners used SR 11-7 as the benchmark for sound practice; gaps drew supervisory criticism.</td>
+                  <td class="cell">SR 26-2 explicitly non-binding, but remains the benchmark for assessing sound practice. Tailoring is now expected, not just allowed.</td>
+                </tr>
+
+                <!-- ─── WHAT'S NOW OUT OF SCOPE ─── -->
+                <tr class="block-head">
+                  <td colspan="3">
+                    <span class="block-label">What's now out of scope</span>
+                    <span class="block-count">3 rows</span>
+                  </td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Generative AI &amp; agentic AI models</td>
+                  <td class="cell">Predates the modern generative AI conversation; no explicit treatment.</td>
+                  <td class="cell"><strong style="color: var(--text);">Explicitly excluded.</strong> Footnote 3 states they are <em>"novel and rapidly evolving"</em> and not within scope. Banks must apply existing risk management practices to govern them.<span class="ref">SR 26-2, footnote 3</span></td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">Traditional ML and statistical models</td>
+                  <td class="cell">In scope — gradient-boosted models, classifiers, neural networks for credit and fraud all governed.</td>
+                  <td class="cell"><strong style="color: var(--text);">Fully in scope.</strong> Non-generative, non-agentic AI models explicitly remain under the guidance's principles.</td>
+                </tr>
+
+                <tr class="data-row">
+                  <td class="row-label">The GenAI governance gap</td>
+                  <td class="cell"><span class="no-equiv">Not applicable.</span></td>
+                  <td class="cell">The carve-out doesn't shrink the governance problem — it pushes it onto enterprise risk frameworks that don't yet exist at most banks. A future RFI is signalled.</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <p class="comparison-footnote">
+            Primary sources:
+            <a href="https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm" target="_blank" rel="noopener">SR 26-2 letter (Federal Reserve)</a> ·
+            <a href="https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf" target="_blank" rel="noopener">SR 26-2 Revised Guidance (PDF attachment)</a> ·
+            <a href="https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm" target="_blank" rel="noopener">SR 11-7 (2011, superseded)</a>.
+            This table is a regulatory reference, not legal advice. Confirm interpretations with qualified counsel for compliance decisions.
+          </p>
+        </div>
+      </div>
     </article>
 
     <div class="cred-group-head">Published references — methodologies and governance frameworks for AI</div>
@@ -1440,18 +1571,6 @@
           </div>
         </div>
         <div class="status" style="color: var(--accent); border-color: var(--accent);">Reference</div>
-      </article>
-    </div>
-
-    <div class="cred-group-head">Essays</div>
-    <div style="margin-top: 8px;">
-      <article class="essay">
-        <div class="num">01 /01</div>
-        <div>
-          <h3>Reading a model card like a regulator</h3>
-          <p class="blurb">A good model card is a risk document in disguise. How to read training data sections for distribution-shift exposure, evaluation tables for under-tested populations, and limitations sections for the unsaid. With a worked example.</p>
-        </div>
-        <div class="status">Outlined</div>
       </article>
     </div>
   </div>
