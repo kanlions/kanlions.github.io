@@ -759,6 +759,55 @@
     border-bottom-color: var(--accent);
   }
 
+  .tools-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-top: 8px;
+  }
+  .tools-table .tools-group-head td {
+    padding: 18px 12px 6px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .tools-table .tools-group-head .group-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .tools-table tbody tr.tool-row td {
+    padding: 12px 12px 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+  }
+  .tools-table .tool-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--text);
+    font-size: 14px;
+    width: 28%;
+    white-space: nowrap;
+  }
+  .tools-table .tool-name a {
+    color: var(--text);
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tools-table .tool-name a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .tools-table .tool-desc {
+    color: var(--text-mute);
+    font-size: 13.5px;
+  }
+  @media (max-width: 720px) {
+    .tools-table .tool-name { width: 35%; white-space: normal; }
+  }
+
   /* ─── Speaking ─── */
   .speak-grid {
     display: grid;
@@ -1202,7 +1251,7 @@
   <div class="wrap">
     <div class="section-eyebrow"><span class="num">04</span> Practice Notes</div>
     <h2>Working artifacts from the <em>practice.</em></h2>
-    <p class="mute" style="max-width:600px;">Comparison tables I've produced. References with my framing of why each matters.</p>
+    <p class="mute" style="max-width:600px;">Comparison tables I've produced. A curated open-source toolkit. References with my framing of why each matters.</p>
 
     <article class="essay" style="border-top: none; padding-top: 8px; align-items: start;">
       <div class="num">ART /01</div>
@@ -1490,9 +1539,114 @@
           <p class="comparison-footnote">
             Primary sources:
             <a href="https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm" target="_blank" rel="noopener">SR 26-2 letter (Federal Reserve)</a> ·
-            <a href="https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf" target="_blank" rel="noopener">SR 26-2 Revised Guidance (PDF attachment)</a> ·
-            <a href="https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm" target="_blank" rel="noopener">SR 11-7 (2011, superseded)</a>.
-            This table is a regulatory reference, not legal advice. Confirm interpretations with qualified counsel for compliance decisions.
+            <a href="https://www.federalreserve.gov/supervisionreg/srletters/SR2602a1.pdf" target="_blank" rel="noopener">SR 26-2 Revised Guidance (PDF attachment)</a>.
+            SR 11-7 (2011) is superseded by SR 26-2; the new letter references and replaces it directly. This table is a regulatory reference, not legal advice. Confirm interpretations with qualified counsel for compliance decisions.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="essay" style="border-top: none; padding-top: 8px; align-items: start;">
+      <div class="num">TOOL /01</div>
+      <div>
+        <div class="comparison-published">
+          <div class="heading">
+            <h4>Open-source toolkit for AI governance and assurance</h4>
+            <span class="pub-date">Reviewed May 2026</span>
+          </div>
+          <p class="blurb">A curated set of actively-maintained open-source libraries I reach for when implementing AI governance controls. Grouped by what they do — evaluation, robustness, governance artefacts, LLM &amp; agentic safety. Reviewed quarterly; entries that stop being actively maintained are removed.</p>
+
+          <table class="tools-table">
+            <tbody>
+
+              <tr class="tools-group-head"><td colspan="2"><span class="group-label">Evaluation &amp; Assessment</span></td></tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/fairlearn/fairlearn" target="_blank" rel="noopener">Fairlearn</a></td>
+                <td class="tool-desc">Microsoft-originated fairness assessment and mitigation toolkit for classification and regression. Now community-maintained under the Fairlearn org.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/Trusted-AI/AIF360" target="_blank" rel="noopener">AIF360</a></td>
+                <td class="tool-desc">Linux Foundation Trusted-AI fairness metrics and mitigation algorithms; broader algorithmic coverage than Fairlearn, heavier setup.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/shap/shap" target="_blank" rel="noopener">SHAP</a></td>
+                <td class="tool-desc">Shapley-value-based feature attribution. The de facto standard for tabular ML explainability; works across most model types.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/pytorch/captum" target="_blank" rel="noopener">Captum</a></td>
+                <td class="tool-desc">PyTorch's official interpretability library. Strong for deep learning attribution; integrates naturally into existing PyTorch training pipelines.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/SeldonIO/alibi-detect" target="_blank" rel="noopener">Alibi Detect</a></td>
+                <td class="tool-desc">Seldon's drift, outlier, and adversarial-input detection library. Pairs with Alibi (sibling library) for explainability.</td>
+              </tr>
+
+              <tr class="tools-group-head"><td colspan="2"><span class="group-label">Robustness &amp; Adversarial</span></td></tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/Trusted-AI/adversarial-robustness-toolbox" target="_blank" rel="noopener">ART (Adversarial Robustness Toolbox)</a></td>
+                <td class="tool-desc">Comprehensive adversarial ML library covering evasion, poisoning, extraction, and inference attacks plus defences. Linux Foundation Trusted-AI.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/QData/TextAttack" target="_blank" rel="noopener">TextAttack</a></td>
+                <td class="tool-desc">NLP-specific adversarial example generation, robustness benchmarking, and data augmentation. UVA Q-Data lab.</td>
+              </tr>
+
+              <tr class="tools-group-head"><td colspan="2"><span class="group-label">Governance Artefacts</span></td></tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/tensorflow/model-card-toolkit" target="_blank" rel="noopener">Model Card Toolkit</a></td>
+                <td class="tool-desc">Google's programmatic model card generation, built on TensorFlow but usable beyond. The reference implementation of the original model card concept.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/dssg/aequitas" target="_blank" rel="noopener">Aequitas</a></td>
+                <td class="tool-desc">University of Chicago's bias and fairness audit toolkit, with strong support for protected-attribute group analysis and reporting.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/Giskard-AI/giskard" target="_blank" rel="noopener">Giskard</a></td>
+                <td class="tool-desc">Model testing and risk assessment for tabular, NLP, and LLM systems. Integrates scanning into CI/CD pipelines.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/truera/trulens" target="_blank" rel="noopener">TruLens</a></td>
+                <td class="tool-desc">TruEra's framework for evaluating and tracking LLM applications — relevance, groundedness, harmfulness — with feedback functions.</td>
+              </tr>
+
+              <tr class="tools-group-head"><td colspan="2"><span class="group-label">LLM &amp; Agentic Safety</span></td></tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/NVIDIA/garak" target="_blank" rel="noopener">garak</a></td>
+                <td class="tool-desc">NVIDIA's LLM vulnerability scanner — probes for prompt injection, jailbreaks, hallucination, data leakage, toxicity. Active development.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/Azure/PyRIT" target="_blank" rel="noopener">PyRIT</a></td>
+                <td class="tool-desc">Microsoft's Python Risk Identification Toolkit for generative AI — orchestrated red-teaming of LLM systems via attack strategies and converters.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/NVIDIA/NeMo-Guardrails" target="_blank" rel="noopener">NeMo Guardrails</a></td>
+                <td class="tool-desc">NVIDIA's runtime safety layer for LLM applications — programmable rails for topical, safety, and execution constraints.</td>
+              </tr>
+
+              <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/promptfoo/promptfoo" target="_blank" rel="noopener">promptfoo</a></td>
+                <td class="tool-desc">LLM evaluation framework — test prompts at scale, compare model outputs, regression-test prompt changes. Strong YAML-driven workflow.</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <p class="comparison-footnote">
+            All entries are open-source under permissive licences. Verify licence and current maintenance status before adopting any tool in production. Links to GitHub repositories.
           </p>
         </div>
       </div>
