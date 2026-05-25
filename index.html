@@ -974,6 +974,7 @@
       <li><a href="#work">work</a></li>
       <li><a href="#credentials">credentials</a></li>
       <li><a href="#writing">practice notes</a></li>
+      <li><a href="#auditing">auditing</a></li>
       <li><a href="#contact">contact</a></li>
     </ul>
   </div>
@@ -1623,6 +1624,11 @@
               <tr class="tools-group-head"><td colspan="2"><span class="group-label">LLM &amp; Agentic Safety</span></td></tr>
 
               <tr class="tool-row">
+                <td class="tool-name"><a href="https://github.com/microsoft/agent-governance-toolkit" target="_blank" rel="noopener">Agent Governance Toolkit</a></td>
+                <td class="tool-desc">Microsoft's policy enforcement, zero-trust identity, execution sandboxing, and reliability engineering for autonomous agents. Explicitly maps to all 10 OWASP Agentic Top 10 risks.</td>
+              </tr>
+
+              <tr class="tool-row">
                 <td class="tool-name"><a href="https://github.com/NVIDIA/garak" target="_blank" rel="noopener">garak</a></td>
                 <td class="tool-desc">NVIDIA's LLM vulnerability scanner — probes for prompt injection, jailbreaks, hallucination, data leakage, toxicity. Active development.</td>
               </tr>
@@ -1726,10 +1732,103 @@
   </div>
 </section>
 
+<!-- ═══════════ AUDITING AI SYSTEMS ═══════════ -->
+<section id="auditing">
+  <div class="wrap">
+    <div class="section-eyebrow"><span class="num">05</span> Auditing AI Systems</div>
+    <h2>Standards and artefacts for <em>AI audit practice.</em></h2>
+    <p class="mute" style="max-width:640px;">A growing reference for AI audit work — the standards that govern how audits run, and the publicly-available artefacts auditors use. Maintained quarterly. ISO 42001 Lead Auditor certification in progress; freelance audit availability from late 2026.</p>
+
+    <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-top: 48px; margin-bottom: 8px; font-weight: 500;">Standards Governing AI Audit</p>
+    <p style="font-size: 13px; color: var(--text-mute); margin-bottom: 8px; max-width: 580px; line-height: 1.5;">The standards an AI auditor works with — both the procedural ones (how audits operate) and the AI-specific ones (what gets audited).</p>
+
+    <ul class="fn-list">
+      <li class="fn-entry">
+        <div class="tag">PROCEDURE<br>ISO/IEC</div>
+        <div>
+          <h4><a href="https://www.iso.org/standard/61651.html" target="_blank" rel="noopener">ISO/IEC 17021-1 — Conformity Assessment Bodies</a></h4>
+          <p class="what">Requirements for bodies providing audit and certification of management systems. The standard that governs how certification bodies themselves operate — competence, impartiality, audit time, documentation.</p>
+          <p class="why">Foundational. Every accredited AIMS certification audit is conducted under 17021-1's umbrella. Anyone working with certified third-party assessments needs to understand the rules certification bodies are themselves bound by.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">PROCEDURE<br>ISO</div>
+        <div>
+          <h4><a href="https://www.iso.org/standard/70017.html" target="_blank" rel="noopener">ISO 19011 — Guidelines for Auditing Management Systems</a></h4>
+          <p class="what">The procedural backbone for management system audits — planning, conducting, reporting, follow-up. Auditor competence requirements. Applies across ISO management system standards (9001, 14001, 27001, 42001).</p>
+          <p class="why">Procedural literacy starts here. The audit-engagement methodology that all management system audits run on. If you understand 19011, the differences between auditing a quality system and auditing an AI system reduce to the AI-specific standard, not the procedure.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">AI-SPECIFIC<br>ISO/IEC</div>
+        <div>
+          <h4><a href="https://www.iso.org/standard/42006" target="_blank" rel="noopener">ISO/IEC 42006:2025 — AIMS Audit &amp; Certification Bodies</a></h4>
+          <p class="what">The audit-side companion to ISO/IEC 42001. Specifies additional requirements (on top of 17021-1) for bodies certifying AI management systems — auditor competence, audit time calculation, AI-specific assessment activities. Published 2025.</p>
+          <p class="why">The first dedicated benchmark for AIMS certification bodies. The transition to 42006-accredited AIMS certification is happening now across accreditation bodies (SCC Canada, UKAS, ANAB). Without it, an AIMS audit is just an ISO 19011 audit with AI words.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">AI QUALITY<br>ISO/IEC TS</div>
+        <div>
+          <h4><a href="https://www.iso.org/standard/82570.html" target="_blank" rel="noopener">ISO/IEC TS 25058:2024 — AI System Quality Evaluation</a></h4>
+          <p class="what">Technical Specification under the SQuaRE family. Guidance for evaluating AI system quality — applies the SQuaRE framework (used widely for software quality) to AI-specific characteristics. A full standard (ISO/IEC 25058) is in development and will replace this.</p>
+          <p class="why">The "what to measure" side of AI audit. ISO 42001 says you must monitor performance; TS 25058 gives you a quality model to anchor what monitoring actually looks like. Useful pairing for evidence-gathering during AI audits.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">SAFETY<br>ISO/IEC TR</div>
+        <div>
+          <h4><a href="https://www.iso.org/standard/81283.html" target="_blank" rel="noopener">ISO/IEC TR 5469:2024 — Functional Safety and AI Systems</a></h4>
+          <p class="what">Technical Report on AI in safety-related functions. Three uses: AI inside a safety function, non-AI safety functions protecting AI-controlled equipment, AI used to design safety functions. Builds on IEC 61508 functional safety principles.</p>
+          <p class="why">Audit-relevant for safety-critical AI in regulated industries — automotive, medical devices, industrial automation. Pairs with ISO 21448 (SOTIF) and ISO PAS 8800 for any AI safety case. The reference that connects classical functional safety practice to learning-enabled systems.</p>
+        </div>
+      </li>
+    </ul>
+
+    <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-top: 48px; margin-bottom: 8px; font-weight: 500;">Audit Artefacts &amp; References</p>
+    <p style="font-size: 13px; color: var(--text-mute); margin-bottom: 8px; max-width: 580px; line-height: 1.5;">Publicly-available templates, playbooks, and frameworks AI auditors draw on. Vendor-neutral; mostly from public bodies and major research institutions.</p>
+
+    <ul class="fn-list">
+      <li class="fn-entry">
+        <div class="tag">PLAYBOOK<br>NIST</div>
+        <div>
+          <h4><a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook" target="_blank" rel="noopener">NIST AI RMF Playbook</a></h4>
+          <p class="what">Companion to the NIST AI Risk Management Framework. Concrete suggested actions for each Function (Govern, Map, Measure, Manage), with sub-categories an auditor can walk through as a checklist of expected practices.</p>
+          <p class="why">The closest thing to a public-domain audit checklist for NIST AI RMF maturity assessment. Useful in cross-jurisdictional audit work where NIST RMF maturity is being assessed alongside ISO 42001 conformance.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">IMPACT<br>MICROSOFT</div>
+        <div>
+          <h4><a href="https://blogs.microsoft.com/wp-content/uploads/prod/sites/5/2022/06/Microsoft-RAI-Impact-Assessment-Template.pdf" target="_blank" rel="noopener">Microsoft Responsible AI Impact Assessment Template</a></h4>
+          <p class="what">A structured template for documenting AI system impact — intended use, stakeholders, harms, mitigations, fitness for purpose. Released alongside Microsoft's Responsible AI Standard v2.</p>
+          <p class="why">One of the few publicly-released impact assessment templates from a major AI vendor. Useful both as an audit artefact (evidence of impact assessment) and as a comparator when reviewing an organisation's own template.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">THREAT REPORT<br>ENISA</div>
+        <div>
+          <h4><a href="https://www.enisa.europa.eu/publications/artificial-intelligence-cybersecurity-challenges" target="_blank" rel="noopener">ENISA — AI Cybersecurity Challenges &amp; Threat Landscape</a></h4>
+          <p class="what">European Union Agency for Cybersecurity's threat landscape for AI systems. Catalogues threats across the AI lifecycle — data poisoning, model evasion, model theft, supply chain — with mappings to defence taxonomies.</p>
+          <p class="why">The European complement to MITRE ATLAS, with regulatory weight inside the EU AI Act ecosystem. Audit-relevant where the assessment includes AI-specific cybersecurity controls under Article 15 of the EU AI Act.</p>
+        </div>
+      </li>
+      <li class="fn-entry">
+        <div class="tag">CROSSWALK<br>NIST</div>
+        <div>
+          <h4><a href="https://airc.nist.gov/docs/NIST_AI_RMF_to_ISO_IEC_42001_Crosswalk.pdf" target="_blank" rel="noopener">NIST AI RMF ↔ ISO/IEC 42001 Crosswalk</a></h4>
+          <p class="what">Formal mapping between NIST AI RMF functions/categories and ISO/IEC 42001 clauses. Published by NIST AIRC, ~30 pages, machine-readable mapping table included.</p>
+          <p class="why">The compliance-grade reference for harmonising two governance regimes. Where an audit covers organisations subject to both NIST RMF expectations and seeking ISO 42001 certification, this is the document that establishes which controls satisfy both.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- ═══════════ SPEAKING / ADVISORY ═══════════ -->
 <section id="advisory">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">05</span> Speaking, Advisory &amp; Invited Talks</div>
+    <div class="section-eyebrow"><span class="num">06</span> Speaking, Advisory &amp; Invited Talks</div>
     <h2>Available for <em>four kinds of engagement.</em></h2>
 
     <div class="speak-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
@@ -1781,7 +1880,7 @@
 <!-- ═══════════ FIELD NOTES ═══════════ -->
 <section id="field-notes">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">06</span> Field Notes</div>
+    <div class="section-eyebrow"><span class="num">07</span> Field Notes</div>
     <h2>What I read, track, and refer back to — <em>beyond the headline frameworks.</em></h2>
     <p class="fn-intro">A working library of the things that don't fit neatly into a CV. Frameworks I draw from when ISO 42001 alone doesn't reach far enough. Regulatory moves outside the EU AI Act that will shape the next five years. Curated, not exhaustive.</p>
 
@@ -1936,7 +2035,7 @@
 <!-- ═══════════ PUBLICATIONS ═══════════ -->
 <section id="publications">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">07</span> Publications</div>
+    <div class="section-eyebrow"><span class="num">08</span> Publications</div>
     <h2>Selected work across <em>governance, robustness, healthcare AI, and image quality.</em></h2>
     <p class="mute" style="max-width:600px; margin-top:20px;">A curated subset. Full list — 40+ peer-reviewed papers — on <a href="https://scholar.google.com/citations?user=e0rpZKsAAAAJ" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">Google Scholar</a>.</p>
 
@@ -1989,7 +2088,7 @@
 <!-- ═══════════ ABOUT ═══════════ -->
 <section id="about">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">08</span> About</div>
+    <div class="section-eyebrow"><span class="num">09</span> About</div>
     <h2>The thread is <em>signal processing.</em></h2>
 
     <div class="about-grid" style="margin-top: 40px;">
@@ -2029,7 +2128,7 @@
 <!-- ═══════════ CONTACT / FOOTER ═══════════ -->
 <footer id="contact">
   <div class="wrap">
-    <div class="section-eyebrow"><span class="num">09</span> Contact</div>
+    <div class="section-eyebrow"><span class="num">10</span> Contact</div>
     <h2>Best reached by <em>email or LinkedIn.</em></h2>
 
     <ul class="contact-list">
