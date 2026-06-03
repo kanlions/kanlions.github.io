@@ -281,6 +281,42 @@
   .thesis-body p { font-size: 18px; line-height: 1.7; }
   .thesis-body strong { color: var(--accent); font-weight: 500; }
 
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .cap-card {
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--accent);
+    padding: 24px 22px;
+    background: var(--bg-soft);
+    display: flex;
+    flex-direction: column;
+  }
+  .cap-card .cap-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .cap-card .cap-label {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  .cap-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-mute);
+    margin: 0;
+  }
+
   .diagram-wrap {
     margin: 60px auto 0;
     max-width: 720px;
@@ -1003,13 +1039,30 @@
 <section id="approach">
   <div class="wrap">
     <div class="section-eyebrow"><span class="num">01</span> Approach</div>
-    <h2>Governance is not a checklist. It is a <em>control system.</em></h2>
+    <h2>The hard part of high-risk AI isn't building the model. <em>It's proving it won't fail.</em></h2>
 
-    <div class="thesis-body">
-      <p class="mute">Most organisations stack frameworks. ISO 42001 sits next to ISO 27001, which sits next to NIST AI RMF, which sits next to whatever the EU AI Act demands. Each gets its own audit, its own owner, its own spreadsheet.</p>
-      <p class="mute">This is expensive, slow, and produces gaps at the seams — exactly where high-risk AI fails.</p>
-      <p>I work the other direction. The frameworks are different views of the same problem: <strong>what could go wrong, who is accountable, and how do we prove it didn't.</strong> When you map the controls across ISO 42001, ISO 31000, ISO 27001, NIST AI RMF, the EU AI Act, and CSA AICM, the overlaps are roughly 70%. The remaining 30% is where you focus — and that's only visible if you treat them as one system.</p>
-      <p class="mute">This is the work. Harmonising controls. Closing seams. Producing a single source of truth a regulator, an auditor, and an engineer can all read.</p>
+    <p class="mute" style="max-width: 640px; margin-bottom: 8px;">That proof is the work — and it needs someone who can speak to both the engineering and the regulation. Most people do one side. I work across both. Three things I do:</p>
+
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-num">01</div>
+        <div class="cap-label">Build &amp; evaluate</div>
+        <p>Design, train, and stress-test ML systems — robustness under distribution shift, failure-mode analysis, evaluation that holds up to scrutiny. Applied AI research background, 24 peer-reviewed papers.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">02</div>
+        <div class="cap-label">Map to frameworks</div>
+        <p>Translate systems into the language of ISO 42001, NIST AI RMF, the EU AI Act, and ISO 27001 — so the same system satisfies engineering review and regulatory obligation at once.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">03</div>
+        <div class="cap-label">Produce audit-ready evidence</div>
+        <p>Risk files, control mappings, model documentation, and assurance artefacts that a regulator, an auditor, and an engineer can all read. ISO 42001 Lead Implementer; Lead Auditor in progress.</p>
+      </div>
+    </div>
+
+    <div class="thesis-body" style="margin-top: 56px;">
+      <p>One belief underneath all three: <strong>governance is not a checklist — it is a control system.</strong> Organisations tend to stack frameworks, each with its own audit and owner, and gaps open at the seams — exactly where high-risk AI fails. The frameworks are really different views of one problem: what could go wrong, who is accountable, and how you prove it didn't. Map the controls across them and most of the work is shared; the small remainder is where the real risk hides.</p>
     </div>
 
     <!-- Unified Control System diagram -->
@@ -1021,19 +1074,12 @@
         </g>
 
         <!-- Six framework circles, arranged hexagonally around a central core -->
-        <!-- Position: 6 circles equidistant from center (350, 250), radius 110 from center, circles r=95 -->
         <g class="frameworks">
-          <!-- Top -->
           <circle class="circle" cx="350" cy="140" r="95" fill="#7fb3d5"/>
-          <!-- Top-right -->
           <circle class="circle" cx="445" cy="195" r="95" fill="#d4a574"/>
-          <!-- Bottom-right -->
           <circle class="circle" cx="445" cy="305" r="95" fill="#7fb3d5"/>
-          <!-- Bottom -->
           <circle class="circle" cx="350" cy="360" r="95" fill="#d4a574"/>
-          <!-- Bottom-left -->
           <circle class="circle" cx="255" cy="305" r="95" fill="#7fb3d5"/>
-          <!-- Top-left -->
           <circle class="circle" cx="255" cy="195" r="95" fill="#d4a574"/>
         </g>
 
